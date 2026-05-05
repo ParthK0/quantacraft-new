@@ -5,23 +5,26 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <section id="about" className="about-section py-32 px-4 bg-black">
-      <div className="about-header mt-20">
+    <section id="about" className="about-section py-32 px-4">
+      <div className="about-header mt-20 relative">
+        {/* Banner Ropes */}
+        <div className="absolute top-[-100px] left-[15%] w-[4px] h-[100px] bg-[#3e2723] border-l-2 border-[#2e1a12] border-r-2 border-[#5d4037] z-10" />
+        <div className="absolute top-[-100px] right-[15%] w-[4px] h-[100px] bg-[#3e2723] border-l-2 border-[#2e1a12] border-r-2 border-[#5d4037] z-10" />
         <h2 data-corner-text="Experience Premium">
           ABOUT QUANTCRAFT
         </h2>
       </div>
 
       <div className="about-content">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="about-text text-zinc-100 font-minecraft text-[12px] leading-[2.2]"
+          className="about-text text-zinc-900 font-minecraft text-[14px] font-bold leading-[1.8]"
         >
           <p className="mb-8">
-            QuantCraft 1.0 is the next evolution of Rajasthan's biggest student-run hackathon—a 36-hour build space where students and innovators from across the country come together to create impactful, real-world tech solutions.
+            QuantCraft 1.0 is the next evolution of Rajasthan's biggest student-run hackathon—a build space where students and innovators from across the country come together to create impactful, real-world tech solutions.
           </p>
           <p className="mb-8">
             More than just coding, it is a platform to explore ideas, sharpen skills, and grow with a driven community—whether you are just starting out or building complex systems.
@@ -31,7 +34,7 @@ export default function About() {
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -39,30 +42,11 @@ export default function About() {
           className="about-image-container"
         >
           <div className="relative">
-            <img 
-              src="/assets/college.png" 
-              alt="College Campus" 
+            <img
+              src="/assets/college1.png"
+              alt="College Campus"
               className="about-image"
             />
-            
-            {/* Creeper & Speech Bubble */}
-            <div className="absolute -bottom-10 -left-20 flex items-end">
-              <div className="relative group">
-                <img 
-                  src="https://minecraft.wiki/images/Creeper_JE2_BE1.png?26084" 
-                  alt="Creeper" 
-                  className="w-32 h-auto image-rendering-pixelated drop-shadow-[0_0_15px_rgba(85,255,85,0.5)] transform hover:scale-110 transition-transform"
-                />
-                <motion.div 
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                  className="speech-bubble"
-                >
-                  36 hours of pure innovation awaits!
-                </motion.div>
-              </div>
-            </div>
           </div>
         </motion.div>
       </div>

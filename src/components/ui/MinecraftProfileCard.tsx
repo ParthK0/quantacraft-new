@@ -46,29 +46,29 @@ export default function MinecraftProfileCard({
 }: MinecraftProfileCardProps) {
   const isOrange = theme === "orange-gold";
   const glowColor = isOrange ? "#ffaa00" : "#00ffcc";
-  const bgGradient = isOrange 
-    ? "linear-gradient(180deg, #361a0a 0%, #1a0a05 100%)" 
+  const bgGradient = isOrange
+    ? "linear-gradient(180deg, #361a0a 0%, #1a0a05 100%)"
     : "linear-gradient(180deg, #0a2e36 0%, #05161a 100%)";
   const squadColor = isOrange ? "#ffaa00" : "#55FF55";
 
   return (
     <motion.div
       className="profile-card wood-frame mx-auto"
-      style={{ 
+      style={{
         background: bgGradient,
         boxShadow: `0 0 30px ${glowColor}22`
       }}
     >
       {/* Glow Border Image Frame */}
-      <div 
+      <div
         className="profile-image-frame"
-        style={{ 
+        style={{
           background: glowColor,
           boxShadow: `0 0 20px ${glowColor}`
         }}
       >
         <div 
-          className="profile-image-inner relative"
+          className="profile-image-inner relative border-[3px] border-black/50"
           style={{ background: isOrange ? "#1a0a05" : "#05161a" }}
         >
           <Image
@@ -84,7 +84,7 @@ export default function MinecraftProfileCard({
       </div>
 
       {/* Squad Name */}
-      <div 
+      <div
         className="text-[8px] font-pixel mb-1 uppercase tracking-[0.2em]"
         style={{ color: squadColor }}
       >
@@ -94,7 +94,7 @@ export default function MinecraftProfileCard({
       {/* Profile Info */}
       <h3 className="profile-name">{name}</h3>
 
-      <div 
+      <div
         className="profile-tag"
         style={{ backgroundColor: isOrange ? "#5C4033" : "#3E2723" }}
       >

@@ -6,13 +6,10 @@ import { useState, useEffect } from "react";
 export default function Hero() {
   return (
     <section id="hero" className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
-      {/* Background Video */}
-      <video
-        src="/assets/herobackground%202.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
+      {/* Background Media (GIF as video background) */}
+      <img
+        src="/assets/hero%20background%203.gif"
+        alt="Hero Background"
         className="absolute inset-0 w-full h-full object-cover -z-10 pointer-events-none"
       />
 
@@ -45,40 +42,6 @@ export default function Hero() {
           className="w-full h-auto filter drop-shadow-[0_0_60px_rgba(85,255,85,0.4)] brightness-110"
         />
       </motion.div>
-      {/* Scrolling Marquee like AceHack */}
-      <ScrollingMarquee />
     </section>
-  );
-}
-
-function ScrollingMarquee() {
-  const { scrollY } = useScroll();
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    return scrollY.on("change", (latest: number) => {
-      if (latest > 100) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    });
-  }, [scrollY]);
-
-  return (
-    <motion.div 
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 50 }}
-      transition={{ duration: 0.5 }}
-      className="fixed bottom-0 left-0 w-full z-[100] overflow-hidden bg-gradient-to-r from-purple-700 via-fuchsia-600 to-purple-700 border-y-2 border-white/20 shadow-[0_-4px_20px_rgba(160,0,255,0.4)]"
-    >
-      <div className="flex whitespace-nowrap py-3 animate-marquee">
-        {[...Array(10)].map((_, i) => (
-          <span key={i} className="font-minecraft text-sm mx-8 text-white drop-shadow-[2px_2px_0_#000]">
-            QUANTCRAFT IS HERE! ~ MAY 25-26 ~ 48 HOURS OF BUILDING ~ JOIN THE ADVENTURE ~ 
-          </span>
-        ))}
-      </div>
-    </motion.div>
   );
 }
