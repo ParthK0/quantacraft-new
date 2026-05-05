@@ -37,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${outfit.variable} ${vt323.variable} ${pressStart2P.variable} ${satisfy.variable} font-sans antialiased bg-black text-white`}>
+      <body className={`${outfit.variable} ${vt323.variable} ${pressStart2P.variable} ${satisfy.variable} font-sans antialiased bg-black text-white`} suppressHydrationWarning>
         {children}
       </body>
     </html>
