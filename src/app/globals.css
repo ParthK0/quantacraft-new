@@ -23,7 +23,7 @@ body {
 
 @layer components {
   .pixel-border {
-    @apply border-4 border-white shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)];
+    @apply border-4 border-white shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)]; /* DO NOT ADD SPACES IN RGBA */
   }
 
   .pixel-text {
@@ -141,27 +141,46 @@ h2::after {
   top: -15px;
 }
 
-.sign-chain::before {
-  left: 15%;
+.sign-rope {
+  position: absolute;
+  top: -40px;
+  width: 4px;
+  height: 40px;
+  background: #3e2723;
+  border-left: 2px solid #2e1a12;
+  border-right: 2px solid #5d4037;
+  z-index: 10;
 }
 
-.sign-chain::after {
-  right: 15%;
+.sign-rope.left-rope {
+  left: 20px;
+}
+
+.sign-rope.right-rope {
+  right: 20px;
 }
 
 .nav-sign {
-  background: url('https://minecraft.wiki/images/Oak_Planks_JE6_BE4.png');
-  border: 2px solid #3E2723;
-  padding: 10px 24px;
+  width: 125px;
+  min-width: 125px;
+  background-color: #5d4037 !important;
+  background-image: url('https://lh3.googleusercontent.com/pw/AP1GczPSZFithNMgw3p0NfejCpVSDTcs4uBveqBbFIQhIYpNpQmHtH3hdvbLKfEVlYf08kgjmMfhrvW6q5gTzl0wiluQnke2OSErtyz9RDP-R6-5-4TiPN9xICRt3IDNc5uoaUlRfsRDFyLXIzQh5_3BlLUQ=w64-h64-s-no-gm?authuser=0');
+  background-size: 32px;
+  background-repeat: repeat;
+  border: 4px solid #2e1a12;
+  padding: 8px 4px;
   color: white;
-  font-size: 12px;
-  text-shadow: 2px 2px #6f00ff;
+  font-size: 9px;
+  text-shadow: 2px 2px 0px #000;
   white-space: nowrap;
   display: block;
   text-align: center;
   transition: transform 0.3s;
-  box-shadow: 0 0 10px rgba(119, 0, 255, 0.4);
-  font-family: var(--font-press-start);
+  box-shadow: inset 2px 2px 0px rgba(255, 255, 255, 0.1), 4px 4px 0px rgba(0, 0, 0, 0.4);
+  font-family: var(--font-press-start), cursive;
+  image-rendering: pixelated;
+  opacity: 1 !important;
+  letter-spacing: 0px;
 }
 
 .lantern-container {
@@ -189,7 +208,7 @@ h2::after {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  margin: 0 auto;
+  margin: -10px auto 0; /* Increased negative margin to close the gap */
   position: relative;
   animation: lanternGlow 2s ease-in-out infinite;
 }
@@ -262,9 +281,10 @@ h2::after {
   aspect-ratio: 3/4;
   padding: 4px;
   background: #00ffcc;
-  /* Neon Cyan Glow */
-  box-shadow: 0 0 15px #00ffcc;
-  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  margin-bottom: 12px;
+  /* Reduced from 20px */
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .profile-image-inner {
@@ -276,38 +296,52 @@ h2::after {
 
 .profile-name {
   font-family: var(--font-press-start);
-  font-size: 14px;
+  font-size: 13px;
+  /* Slightly reduced */
   color: white;
   text-shadow: 2px 2px 0 #000;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
+  /* Reduced from 12px */
 }
 
 .profile-tag {
   background: #5C4033;
-  /* Brown (Wood) */
   border: 2px solid #8B4513;
-  padding: 6px 16px;
+  padding: 4px 12px;
+  /* Reduced padding */
   font-family: var(--font-press-start);
-  font-size: 8px;
+  font-size: 7px;
+  /* Slightly reduced */
   color: #fff;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
+  /* Reduced from 16px */
   box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
   text-transform: uppercase;
 }
 
 .profile-desc {
   font-family: var(--font-press-start);
-  font-size: 9px;
+  font-size: 8px;
+  /* Slightly reduced from 9px */
   color: #a0aec0;
-  line-height: 1.8;
-  margin-bottom: 20px;
+  line-height: 1.6;
+  /* Reduced line-height */
+  margin-bottom: 12px;
+  /* Reduced from 20px */
   flex-grow: 1;
+  overflow: hidden;
+  /* Prevent overflow */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  /* Limit bio length */
+  -webkit-box-orient: vertical;
 }
 
 .profile-social-container {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   margin-top: auto;
+  padding-bottom: 4px;
 }
 
 .profile-social {
@@ -358,6 +392,10 @@ h2::after {
 .about-section {
   position: relative;
   overflow: hidden;
+  background-image: url('/assets/about/sky.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .about-header {
@@ -444,7 +482,6 @@ h2::after {
   line-height: 2;
   font-size: 14px;
   /* Increased from 12px for better readability */
-  text-shadow: 4px 4px 0 #000;
   position: relative;
   display: flex;
   gap: 40px;
@@ -455,6 +492,7 @@ h2::after {
 .about-text {
   flex: 1;
   text-align: left;
+  text-shadow: none !important;
 }
 
 .about-image-container {
@@ -463,11 +501,12 @@ h2::after {
 }
 
 .about-image {
-  width: 460px;
-  height: 300px;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
   image-rendering: pixelated;
-  filter: drop-shadow(0 10px 20px rgba(160, 0, 255, 0.4));
-  border: 2px solid rgba(160, 0, 255, 0.3);
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+  border: none;
 }
 
 /* Creeper Speech Bubble */
@@ -563,4 +602,89 @@ h2::after {
     font-size: 1rem;
     right: 0;
   }
+}
+
+@keyframes pendulum-swing {
+  0% {
+    transform: rotate(-18deg);
+  }
+
+  50% {
+    transform: rotate(18deg);
+  }
+
+  100% {
+    transform: rotate(-18deg);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Timeline Backdrop */
+#timeline {
+  background-image: url('/assets/timeline/timeline.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+#timeline::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+#timeline>div {
+  position: relative;
+  z-index: 2;
+}
+
+/* Prizes Backdrop */
+#prizes {
+  background-image: url('/assets/prizes/prizes.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+#prizes::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1;
+}
+
+#prizes > div {
+  position: relative;
+  z-index: 2;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+/* Sponsors Section */
+#sponsors {
+  background: radial-gradient(circle at center, #1a0a2e 0%, #000000 100%);
+  position: relative;
+}
+
+#sponsors::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
+  opacity: 0.3;
+  pointer-events: none;
 }

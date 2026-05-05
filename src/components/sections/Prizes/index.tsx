@@ -5,7 +5,7 @@ import { Trophy, Gift, Globe } from "lucide-react";
 
 export default function Prizes() {
   return (
-    <section id="prizes" className="py-32 px-4 max-w-7xl mx-auto border-y border-white/5 bg-zinc-950/30">
+    <section id="prizes" className="py-32 px-4 relative overflow-hidden">
       <div className="text-center mb-24 pt-20">
         <h2 data-corner-text="Loot Table Revealed">TOTAL POOL: ₹35,000</h2>
       </div>

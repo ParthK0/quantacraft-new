@@ -58,7 +58,7 @@ const events = [
 
 export default function Timeline() {
   return (
-    <section id="timeline" className="py-32 px-4 relative bg-black overflow-hidden font-pixel">
+    <section id="timeline" className="py-32 px-4 relative overflow-hidden font-pixel">
       {/* Background Stars/Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(160,0,255,0.1),transparent_70%)]" />
 
