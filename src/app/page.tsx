@@ -1,5 +1,7 @@
 "use client";
 
+import { useState, useEffect } from "react";
+
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Tracks from "@/components/sections/Tracks";
@@ -10,44 +12,70 @@ import FAQ from "@/components/sections/FAQ";
 import Footer from "@/components/sections/Footer";
 import AvatarAssistant from "@/components/AvatarAssistant";
 import LoadingScreen from "@/components/LoadingScreen";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function Home() {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
+  const [showNav, setShowNav] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setShowNav(true);
+      } else {
+        setShowNav(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <main className="relative">
       <LoadingScreen />
-      {/* Progress Bar */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-minecraft-green z-[100] origin-left"
-        style={{ scaleX }}
-      />
 
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-md border-b border-white/5 py-4 px-6 flex justify-between items-center">
-        <div className="font-pixel text-xl tracking-tighter hover:text-minecraft-green cursor-pointer transition-colors group">
-          QUANT<span className="text-minecraft-green group-hover:text-white transition-colors">CRAFT</span>
-        </div>
-        
-        <div className="hidden md:flex gap-8 text-[10px] font-pixel uppercase tracking-widest text-zinc-400">
-          <a href="#about" className="hover:text-white transition-colors">About</a>
-          <a href="#tracks" className="hover:text-white transition-colors">Tracks</a>
-          <a href="#timeline" className="hover:text-white transition-colors">Timeline</a>
-          <a href="#prizes" className="hover:text-white transition-colors">Prizes</a>
-          <a href="#team" className="hover:text-white transition-colors">Team</a>
-          <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
+
+      {/* Texture Bar at top */}
+      <div className="fixed top-0 left-0 w-full h-[14px] bg-[url('https://lh3.googleusercontent.com/pw/AP1GczPSZFithNMgw3p0NfejCpVSDTcs4uBveqBbFIQhIYpNpQmHtH3hdvbLKfEVlYf08kgjmMfhrvW6q5gTzl0wiluQnke2OSErtyz9RDP-R6-5-4TiPN9xICRt3IDNc5uoaUlRfsRDFyLXIzQh5_3BlLUQ=w16-h16-s-no-gm?authuser=0')] bg-repeat-x bg-contain z-[60] shadow-[inset_0_-4px_6px_rgba(0,0,0,0.5)]" />
+
+      {/* Navigation with Hanging Signs & Lanterns */}
+      <motion.nav
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: showNav ? 0 : -100, opacity: showNav ? 1 : 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="fixed top-[14px] left-0 right-0 z-50 flex justify-between items-start px-12 pointer-events-none"
+      >
+        {/* Left Lantern */}
+        <div className="lantern-container">
+          <div className="lantern-chain" />
+          <div className="lantern" />
         </div>
 
-        <button className="px-4 py-2 bg-white text-black font-pixel text-[10px] hover:bg-minecraft-green transition-colors">
-          JOIN ARENA
-        </button>
-      </nav>
+        {/* Center Signs - Spread Out */}
+        <div className="flex-1 flex justify-around items-start pt-0 px-8 pointer-events-auto">
+          {[
+            { label: "ABOUT", href: "#about" },
+            { label: "TRACKS", href: "#tracks", isNew: true },
+            { label: "TIMELINE", href: "#timeline" },
+            { label: "PRIZES", href: "#prizes" },
+            { label: "TEAM", href: "#team" },
+            { label: "FAQ", href: "#faq" }
+          ].map((item, i) => (
+            <div key={i} className="nav-sign-container">
+              <div className="sign-chain" />
+              <a href={item.href} className="nav-sign hover:brightness-110 transition-all">
+                {item.label}
+                {item.isNew && <span className="new-tag">NEW</span>}
+              </a>
+            </div>
+          ))}
+        </div>
+
+        {/* Right Lantern */}
+        <div className="lantern-container">
+          <div className="lantern-chain" />
+          <div className="lantern" />
+        </div>
+      </motion.nav>
 
       {/* Sections */}
       <Hero />
@@ -64,3 +92,4 @@ export default function Home() {
     </main>
   );
 }
+

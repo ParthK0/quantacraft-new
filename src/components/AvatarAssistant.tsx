@@ -15,7 +15,6 @@ const quotes: Record<string, string> = {
 
 export default function AvatarAssistant() {
   const [currentSection, setCurrentSection] = useState("hero");
-  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -36,41 +35,43 @@ export default function AvatarAssistant() {
   }, []);
 
   return (
-    <div className="fixed bottom-4 left-4 z-50 flex items-end gap-4 pointer-events-none">
+    <div className="fixed bottom-4 left-[-4rem] z-50 pointer-events-none flex items-center gap-0">
+      {/* The Avatar Image - Kept at w-72, moved more left */}
       <motion.div
-        className="pointer-events-auto cursor-help"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ type: "spring", damping: 20 }}
+        className="w-72 h-72 pointer-events-auto cursor-help flex-shrink-0"
       >
-        <div className="w-24 h-24 bg-zinc-800 rounded-lg border-2 border-white/20 overflow-hidden relative group">
-          <img 
-            src="/assets/avatar.png" 
-            alt="Avatar" 
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform"
-          />
-          <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-[8px] text-center py-0.5 font-pixel uppercase text-white">
-            QuantBot
-          </div>
-        </div>
+        <img 
+          src="/assets/avator.png" 
+          alt="Avatar" 
+          className="w-full h-full object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
+        />
       </motion.div>
 
-      <AnimatePresence mode="wait">
-        {(isHovered || true) && (
+      {/* The Quote Bubble - Closer to character */}
+      <div className="flex items-center -ml-20"> {/* Increased negative margin to reduce distance */}
+        <AnimatePresence mode="wait">
           <motion.div
             key={currentSection}
-            initial={{ opacity: 0, y: 20, scale: 0.8 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            className="bg-white text-black p-3 rounded-xl rounded-bl-none shadow-xl max-w-[200px] text-sm font-medium relative mb-12 pointer-events-auto"
+            initial={{ opacity: 0, scale: 0.8, x: -10 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            exit={{ opacity: 0, scale: 0.8, x: -10 }}
+            className="relative flex items-center pointer-events-auto"
           >
-            {quotes[currentSection] || "Build. Solve. Conquer."}
-            <div className="absolute -bottom-2 left-0 w-4 h-4 bg-white rotate-45 -translate-x-1/2" />
+            {/* Bubble Tail */}
+            <div className="w-0 h-0 border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent border-r-[12px] border-r-white z-10" />
+            
+            {/* Main Bubble Box */}
+            <div className="bg-[#A000FF] border-[2px] border-white px-6 py-4 shadow-[4px_4px_0px_rgba(0,0,0,0.5)] min-w-[240px] max-w-[320px]">
+              <p className="text-white font-pixel text-sm leading-tight uppercase tracking-widest">
+                {quotes[currentSection] || "Build. Solve. Conquer."}
+              </p>
+            </div>
           </motion.div>
-        )}
-      </AnimatePresence>
+        </AnimatePresence>
+      </div>
     </div>
   );
 }
