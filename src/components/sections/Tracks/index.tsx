@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import MinecraftTrackCard from "@/components/ui/MinecraftTrackCard";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 const tracks = [
   {
@@ -59,26 +60,12 @@ export default function Tracks() {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-20 pt-10">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-block mb-4"
-          >
-            <span className="px-6 py-2 border border-white/10 bg-white/5 backdrop-blur-sm text-[10px] font-pixel text-zinc-300 tracking-[0.3em] uppercase">
-              The Path Awaits
-            </span>
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-pixel text-white mb-8 tracking-tighter drop-shadow-2xl"
-          >
-            HACKATHON TRACKS
-          </motion.h2>
-        </div>
+        <SectionHeader 
+          title="HACKATHON TRACKS" 
+          subtext="Select Your Path" 
+          className="mb-12"
+          titleClassName="multi-color-text"
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 justify-items-center">
           {tracks.map((track, i) => (

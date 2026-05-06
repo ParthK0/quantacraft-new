@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import PrizeChest from "@/components/ui/PrizeChest";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 const prizesData = [
   {
@@ -83,17 +84,11 @@ export default function Prizes() {
       <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, #2d1b6933 0%, transparent 70%)" }} />
 
       <div className="max-w-[1200px] mx-auto relative z-10 w-full">
-        <div className="text-center mb-6 md:mb-12">
-          <motion.h2
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-5xl lg:text-7xl font-pixel text-white tracking-tighter"
-            data-corner-text="Loot Table Revealed"
-          >
-            TOTAL POOL: ₹35,000
-          </motion.h2>
-        </div>
+        <SectionHeader
+          title="TOTAL POOL: ₹35,000"
+          subtext="Loot Table Revealed"
+          className="mb-12"
+        />
 
         {/* Desktop Layout: 2 flex rows */}
         <div className="hidden md:flex flex-col items-center justify-center gap-0 w-full">

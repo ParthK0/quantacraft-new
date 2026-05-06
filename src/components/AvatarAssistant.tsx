@@ -36,7 +36,7 @@ export default function AvatarAssistant() {
   }, []);
 
   return (
-    <div className="fixed bottom-4 left-[-4rem] z-50 pointer-events-none flex items-center gap-0">
+    <div className="fixed bottom-12 left-[-4rem] z-50 pointer-events-none flex items-center gap-0">
       {/* The Avatar Image - Kept at w-72, moved more left */}
       <motion.div
         initial={{ x: -100, opacity: 0 }}

@@ -35,6 +35,8 @@ export const metadata: Metadata = {
   description: "Join QuantCraft, the ultimate hackathon at Galgotias University. AI/ML, Cyber Security, Blockchain, and Game Dev tracks.",
 };
 
+import LoadingScreen from "@/components/LoadingScreen";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -43,6 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className={`${outfit.variable} ${vt323.variable} ${pressStart2P.variable} ${satisfy.variable} ${firaCode.variable} font-sans antialiased bg-black text-white`} suppressHydrationWarning>
+        <LoadingScreen />
         {children}
       </body>
     </html>

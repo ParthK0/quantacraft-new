@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 @theme {
   --font-sans: var(--font-outfit);
   --font-pixel: var(--font-vt323);
@@ -24,7 +25,7 @@ body {
 @layer components {
   .pixel-border {
     @apply border-4 border-white shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)];
-    /* DO NOT ADD SPACES IN RGBA */
+    /* NO SPACES IN ARBITRARY VALUES */
   }
 
   .pixel-text {
@@ -57,21 +58,21 @@ h1 {
 
 h2 {
   font-family: var(--font-press-start);
-  font-size: 55px;
+  font-size: 72px;
   text-align: center;
-  margin-bottom: 76px;
-  text-shadow: 5px 5px #c300ff;
+  margin-bottom: 96px;
+  text-shadow: 6px 6px #A000FF;
   color: #ffffff;
   position: relative;
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
 /* Pixelated Logo Overlay above H2 */
 h2::before {
   content: '';
   position: absolute;
-  top: -60px;
-  /* Adjusted to sit above */
+  top: 8px;
+  /* Adjusted via absolute positioning */
   left: 50%;
   transform: translateX(-50%);
   width: 500px;
@@ -89,7 +90,7 @@ h2::before {
 h2::after {
   content: attr(data-corner-text);
   position: absolute;
-  top: 70px;
+  top: 95px;
   right: 20%;
   /* Adjusted for responsiveness */
   font-size: 30px;
@@ -104,7 +105,7 @@ h2::after {
 
 .about-header h2::after {
   color: #c084fc;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* Responsive adjustments */
@@ -485,26 +486,89 @@ h2::after {
 .about-content {
   max-width: 1300px;
   margin: 0 auto;
-  padding: 30px 20px 0px;
+  padding: 0px 40px 60px;
   line-height: 2;
   font-size: 14px;
-  /* Increased from 12px for better readability */
   position: relative;
   display: flex;
-  gap: 40px;
-  align-items: flex-start;
-  justify-content: space-between;
+  gap: 60px;
+  align-items: center;
+  justify-content: center;
 }
 
 .about-text {
-  flex: 1;
+  flex: 1.2;
   text-align: left;
-  text-shadow: none !important;
+  z-index: 2;
 }
 
 .about-image-container {
-  flex: 0 0 460px;
+  flex: 1;
   position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image {
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  image-rendering: pixelated;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+}
+
+/* ── ABOUT heading ── */
+.about-pixel-heading {
+  font-family: var(--font-press-start), cursive;
+  font-size: clamp(24px, 4vw, 52px);
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  line-height: 1.3;
+  text-align: center;
+
+  /* Cyan-to-white gradient fill */
+  background: linear-gradient(to bottom,
+      #ffffff 0%,
+      #aaf4ff 30%,
+      #00d4ff 65%,
+      #0099cc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  /* Dark navy pixel outline */
+  -webkit-text-stroke: 5px #001833;
+  paint-order: stroke fill;
+
+  /* Glow */
+  filter: drop-shadow(0 0 14px rgba(0, 200, 255, 0.55));
+
+  margin-bottom: 16px;
+}
+
+/* ── Divider ── */
+.about-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  color: #67e8f9;
+}
+
+.divider-line {
+  display: block;
+  width: 120px;
+  height: 1.5px;
+  background: linear-gradient(to right, transparent, #67e8f9, transparent);
+}
+
+.divider-dots {
+  font-size: 14px;
+  letter-spacing: 6px;
+  color: #a78bfa;
 }
 
 .about-image {
@@ -532,17 +596,34 @@ h2::after {
   box-shadow: 4px 4px 0 #000;
 }
 
-.speech-bubble::before {
-  content: '';
-  position: absolute;
-  top: 10px;
-  right: -10px;
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 10px solid #A000FF;
+.multi-color-text {
+  /* Create the vertical segments */
+  background: linear-gradient(to bottom,
+      #0000FF 0%,
+      /* Blue starts at top */
+      #0000FF 50%,
+      /* Blue ends at 50% */
+      #00008B 50%,
+      /* Dark Blue starts exactly at 50% */
+      #00008B 75%,
+      /* Dark Blue ends at 75% */
+      #008000 75%,
+      /* Green starts exactly at 75% */
+      #008000 100%
+      /* Green ends at the bottom */
+    );
+
+  /* Magic to make the background only show through the text */
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* Make the original text color transparent so the background shows */
+  color: transparent !important;
+
+  /* Ensure font weight is thick enough to see the colors clearly */
+  font-weight: bold;
 }
+
 
 /* Responsive About Section */
 @media (max-width: 1024px) {
@@ -632,6 +713,127 @@ h2::after {
   }
 }
 
+/* ── Jungle/Lush Cave Footer Styles ── */
+.jungle-footer-bg {
+  background-color: #0a1a0a;
+  background-image:
+    linear-gradient(#1a2e1a 1px, transparent 1px),
+    linear-gradient(90deg, #1a2e1a 1px, transparent 1px);
+  background-size: 32px 32px;
+  position: relative;
+}
+
+.creeper-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%2322c55e' opacity='0.03' d='M1 1h6v6H1V1zm1 1h1v1H2V2zm3 0h1v1H5V2zm-2 2h2v2H3V4zm-1 1h1v1H2V5zm4 0h1v1H6V5z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.jungle-footer-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(34, 197, 94, 0.05) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.mossy-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+.footer-logo-text {
+  font-family: var(--font-press-start), cursive;
+  font-size: clamp(24px, 3.5vw, 42px);
+  background: linear-gradient(to bottom, #ffffff 0%, #aaffff 40%, #00d4ff 75%, #0099cc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-text-stroke: 4px #001833;
+  paint-order: stroke fill;
+  filter: drop-shadow(0 0 15px rgba(0, 200, 255, 0.8));
+  letter-spacing: -1px;
+}
+
+.footer-heading {
+  font-family: var(--font-press-start), cursive;
+  font-size: 14px;
+  color: #67e8f9;
+  text-shadow:
+    0 0 10px #ffaa00,
+    0 0 20px #22c55e;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.footer-link {
+  font-family: var(--font-press-start), cursive;
+  font-size: 10px;
+  color: #e2e8f0;
+  transition: all 0.2s;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-link:hover {
+  color: #67e8f9;
+  padding-left: 8px;
+}
+
+.footer-label {
+  color: #86efac;
+  font-weight: bold;
+}
+
+/* ── Grass Block Character Base ── */
+.grass-block-base {
+  width: 120px;
+  height: 24px;
+  background: #4ade80;
+  border-bottom: 8px solid #3d1f00;
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+@keyframes infinite-slide {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.animate-infinite-slide {
+  animation: infinite-slide 3s linear infinite;
+}
+
+#team h2::before,
+#team h2::after {
+  display: none !important;
+}
+
+
+
+
+
 /* Timeline Backdrop */
 #timeline {
   background-image: url('/assets/timeline/timeline.jpg');
@@ -691,4 +893,103 @@ h2::after {
   background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
   opacity: 0.3;
   pointer-events: none;
+}
+
+/* ── Minecraft Java Edition Loading Screen ── */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: #1a1a1e;
+  background-image:
+    linear-gradient(#242428 1px, transparent 1px),
+    linear-gradient(90deg, #242428 1px, transparent 1px);
+  background-size: 32px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  overflow: hidden;
+}
+
+.loading-logo {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 15px rgba(0, 200, 255, 0.4));
+  animation: float 3s ease-in-out infinite;
+}
+
+.canvas-container {
+  padding: 4px;
+  background: #333;
+  border: 2px solid #555;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.chunk-canvas {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  display: block;
+}
+
+.loading-bar-wrap {
+  width: min(400px, 85vw);
+}
+
+.loading-bar-outer {
+  height: 12px;
+  background: #111;
+  border: 2px solid #555;
+  position: relative;
+}
+
+.loading-bar-fill {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.loading-phase {
+  font-family: var(--font-press-start);
+  font-size: 10px;
+  color: #e2e8f0;
+  letter-spacing: 1px;
+}
+
+.loading-tip {
+  font-family: var(--font-press-start);
+  font-size: 8px;
+  color: #fbbf24;
+  text-align: center;
+  max-width: 500px;
+  position: absolute;
+  bottom: 50px;
+  line-height: 1.6;
+}
+
+.loading-exit {
+  animation: pixel-exit 600ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  pointer-events: none;
+}
+
+@keyframes pixel-exit {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+
+  100% {
+    transform: translateY(-100vh) scale(1.05);
+    opacity: 0;
+    filter: blur(8px);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }

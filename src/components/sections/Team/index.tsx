@@ -2,8 +2,10 @@
 
 import { useRef, useCallback, useEffect, useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import MinecraftProfileCard from "@/components/ui/MinecraftProfileCard";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 type SocialLinks = {
   github?: string;
@@ -279,20 +281,22 @@ export default function Team() {
   }, [wrapIfNeeded]);
 
   return (
-    <section id="team" className="py-32 bg-zinc-950 overflow-hidden relative">
+    <section id="team" className="py-16 bg-zinc-900 overflow-hidden relative">
       {/* Background Image */}
       <img
         src="/assets/team/minecraft.jpg"
         alt="Team Backdrop"
-        className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none opacity-40"
+        className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none opacity-80"
       />
-      {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/80 z-[1] pointer-events-none" />
+      {/* Overlay for readability - much lighter and cleaner */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 z-[1] pointer-events-none" />
 
       {/* Heading */}
-      <div className="max-w-7xl mx-auto px-6 mb-24 relative z-10 pt-20">
-        <h2 data-corner-text="Infinite loop of innovation">THE QUANTA CREW</h2>
-      </div>
+      <SectionHeader 
+        title="THE QUANTA CREW" 
+        subtext="Meet the Innovators" 
+        className="pt-10"
+      />
 
       {/* Carousel wrapper */}
       <div className="relative" onMouseEnter={pause} onMouseLeave={resume}>
