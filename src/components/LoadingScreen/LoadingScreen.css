@@ -1,0 +1,118 @@
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: #1a1a1e;
+  background-image:
+    linear-gradient(#242428 1px, transparent 1px),
+    linear-gradient(90deg, #242428 1px, transparent 1px);
+  background-size: 32px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  overflow: hidden;
+}
+
+.loading-logo {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 12px rgba(0,200,255,0.6));
+  animation: float 3s ease-in-out infinite;
+}
+
+.chunk-canvas {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  border: 3px solid #555;
+  box-shadow:
+    0 0 0 2px #1a1a1e,
+    0 0 0 4px #555,
+    0 0 30px rgba(74,158,255,0.3);
+  width: 207px;
+  height: 207px;
+}
+
+@media (max-width: 1024px) {
+  .chunk-canvas {
+    width: 161px;
+    height: 161px;
+  }
+}
+
+@media (max-width: 640px) {
+  .chunk-canvas {
+    width: 115px;
+    height: 115px;
+  }
+}
+
+.loading-bar-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading-bar-outer {
+  width: min(400px, 80vw);
+  height: 10px;
+  background: #111;
+  border: 2px solid #555;
+  border-radius: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.loading-bar-fill {
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  background: #ffffff;
+  transition: width 16ms linear;
+}
+
+.loading-pct {
+  position: absolute;
+  right: -40px;
+  top: -2px;
+  font-family: var(--font-press-start), cursive;
+  font-size: 9px;
+  color: #e2e8f0;
+}
+
+.loading-phase {
+  font-family: var(--font-press-start), cursive;
+  font-size: 9px;
+  color: #e2e8f0;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.loading-tip {
+  font-family: var(--font-press-start), cursive;
+  font-size: 8px;
+  color: #fbbf24;
+  text-align: center;
+  max-width: 500px;
+  padding: 0 20px;
+  position: absolute;
+  bottom: 40px;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.loading-exit {
+  animation: pixel-exit 600ms steps(8) forwards;
+}
+
+@keyframes pixel-exit {
+  0%   { transform: translateY(0);      opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px);  }
+  50%       { transform: translateY(-8px); }
+}

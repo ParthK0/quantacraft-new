@@ -51,7 +51,7 @@ export default function About() {
         >
           <div className="relative">
             <img
-              src="/assets/college2.png"
+              src="/assets/college3.png"
               alt="College Campus"
               className="about-image"
             />
