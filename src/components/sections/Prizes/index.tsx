@@ -1,82 +1,141 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Trophy, Gift, Globe } from "lucide-react";
+import PrizeChest from "@/components/ui/PrizeChest";
+
+const prizesData = [
+  {
+    id: "first",
+    closedSrc: "/assets/prizes/1stclosed.png",
+    openSrc: "/assets/prizes/1stopen.png",
+    label: "1ST PLACE",
+    amount: "₹15,000",
+    glowColor: "#7c3aed",
+    sizeClass: "w-[200px] md:w-[320px]",
+    glowClass: "w-[200px] h-[100px] md:w-[320px] md:h-[140px]",
+    labelClass: "text-[10px] md:text-[13px]",
+    amountClass: "text-[16px] md:text-[24px]",
+    idleOpacity: [0.6, 1.0, 0.6],
+    glowRadius: "80%",
+  },
+  {
+    id: "second",
+    closedSrc: "/assets/prizes/2ndclosed.png",
+    openSrc: "/assets/prizes/2nd%20open.png",
+    label: "2ND PLACE",
+    amount: "₹10,000",
+    glowColor: "#f59e0b",
+    sizeClass: "w-[200px] md:w-[240px]",
+    glowClass: "w-[200px] h-[100px] md:w-[240px] md:h-[110px]",
+    labelClass: "text-[10px] md:text-[11px]",
+    amountClass: "text-[16px] md:text-[20px]",
+    idleOpacity: [0.5, 0.8, 0.5],
+    glowRadius: "75%",
+  },
+  {
+    id: "third",
+    closedSrc: "/assets/prizes/3rdcloset.png",
+    openSrc: "/assets/prizes/3rdopen.png",
+    label: "3RD PLACE",
+    amount: "₹5,000",
+    glowColor: "#94a3b8",
+    sizeClass: "w-[200px] md:w-[240px]",
+    glowClass: "w-[200px] h-[100px] md:w-[240px] md:h-[110px]",
+    labelClass: "text-[10px] md:text-[11px]",
+    amountClass: "text-[16px] md:text-[20px]",
+    idleOpacity: [0.5, 0.8, 0.5],
+    glowRadius: "75%",
+  },
+  {
+    id: "special",
+    closedSrc: "/assets/prizes/specialclosed.png",
+    openSrc: "/assets/prizes/specialopen.png",
+    label: "SPECIAL PRIZE",
+    amount: "Sponsors",
+    glowColor: "#ea580c",
+    sizeClass: "w-[200px] md:w-[200px]",
+    glowClass: "w-[200px] h-[100px] md:w-[200px] md:h-[90px]",
+    labelClass: "text-[10px] md:text-[9px]",
+    amountClass: "text-[16px] md:text-[16px]",
+    idleOpacity: [0.4, 0.7, 0.4],
+    glowRadius: "70%",
+  },
+  {
+    id: "participants",
+    closedSrc: "/assets/prizes/particpiationclosed.png",
+    openSrc: "/assets/prizes/participationclosead.png",
+    label: "ALL PARTICIPANTS",
+    amount: "Goodies",
+    glowColor: "#92400e",
+    sizeClass: "w-[200px] md:w-[200px]",
+    glowClass: "w-[200px] h-[100px] md:w-[200px] md:h-[90px]",
+    labelClass: "text-[10px] md:text-[9px]",
+    amountClass: "text-[16px] md:text-[16px]",
+    idleOpacity: [0.4, 0.7, 0.4],
+    glowRadius: "70%",
+  },
+];
 
 export default function Prizes() {
   return (
-    <section id="prizes" className="py-32 px-4 relative overflow-hidden">
-      <div className="text-center mb-24 pt-20">
-        <h2 data-corner-text="Loot Table Revealed">TOTAL POOL: ₹35,000</h2>
-      </div>
+    <section id="prizes" className="pt-[120px] pb-[40px] px-4 relative overflow-hidden bg-zinc-950 min-h-[100vh] flex flex-col justify-center">
+      {/* Central Spotlight Overlay */}
+      <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, #2d1b6933 0%, transparent 70%)" }} />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-        <PrizeCard
-          rank="2nd Place"
-          amount="₹10,000"
-          icon="🥈"
-          color="border-zinc-400"
-          delay={0.1}
-        />
-        <PrizeCard
-          rank="1st Place"
-          amount="₹15,000"
-          icon="🥇"
-          color="border-minecraft-gold"
-          featured
-          delay={0}
-        />
-        <PrizeCard
-          rank="3rd Place"
-          amount="₹5,000"
-          icon="🥉"
-          color="border-orange-700"
-          delay={0.2}
-        />
-      </div>
+      <div className="max-w-[1200px] mx-auto relative z-10 w-full">
+        <div className="text-center mb-6 md:mb-12">
+          <motion.h2
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl lg:text-7xl font-pixel text-white tracking-tighter"
+            data-corner-text="Loot Table Revealed"
+          >
+            TOTAL POOL: ₹35,000
+          </motion.h2>
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="p-8 bg-zinc-900 border border-white/5 rounded-2xl flex items-center gap-6">
-          <div className="w-16 h-16 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-500">
-            <Gift className="w-8 h-8" />
+        {/* Desktop Layout: 2 flex rows */}
+        <div className="hidden md:flex flex-col items-center justify-center gap-0 w-full">
+          {/* Row 1: 2nd, 1st, 3rd */}
+          <div className="flex flex-row items-end justify-center gap-[20px] w-full">
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }}>
+              <PrizeChest data={prizesData[1]} /> {/* 2nd */}
+            </motion.div>
+            <motion.div className="mb-[80px] z-10" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0 }}>
+              <PrizeChest data={prizesData[0]} /> {/* 1st */}
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
+              <PrizeChest data={prizesData[2]} /> {/* 3rd */}
+            </motion.div>
           </div>
-          <div>
-            <h3 className="font-pixel text-lg">ALL PARTICIPANTS</h3>
-            <p className="text-zinc-400">Exclusive Goodies & Certificates</p>
+
+          {/* Row 2: Special, Participants */}
+          <div className="flex flex-row justify-center gap-[140px] -mt-[60px] w-full z-20 relative">
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.45 }}>
+              <PrizeChest data={prizesData[3]} /> {/* Special */}
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.6 }}>
+              <PrizeChest data={prizesData[4]} /> {/* Participants */}
+            </motion.div>
           </div>
         </div>
-        <div className="p-8 bg-zinc-900 border border-white/5 rounded-2xl flex items-center gap-6">
-          <div className="w-16 h-16 bg-green-500/10 rounded-xl flex items-center justify-center text-green-500">
-            <Globe className="w-8 h-8" />
-          </div>
-          <div>
-            <h3 className="font-pixel text-lg">SPECIAL PRIZE</h3>
-            <p className="text-zinc-400">Sponsor Domain Prizes (TBA)</p>
-          </div>
+
+        {/* Mobile Layout: Single column */}
+        <div className="flex flex-col md:hidden items-center gap-[24px]">
+          {prizesData.map((prize, index) => (
+            <motion.div
+              key={prize.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.15 }}
+            >
+              <PrizeChest data={prize} />
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
-  );
-}
-
-function PrizeCard({ rank, amount, icon, color, featured, delay }: any) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay }}
-      className={`p-10 bg-zinc-900 border-4 ${color} rounded-3xl relative overflow-hidden flex flex-col items-center text-center ${featured ? "md:scale-110 md:-translate-y-4 shadow-[0_0_50px_-12px_rgba(255,215,0,0.3)]" : ""}`}
-    >
-      <div className="text-6xl mb-6">{icon}</div>
-      <h3 className="font-pixel text-xl mb-2">{rank}</h3>
-      <div className="text-4xl font-bold text-white mb-4">{amount}</div>
-      <div className="w-full h-px bg-white/10 my-4" />
-      <ul className="text-zinc-400 text-sm space-y-2">
-        <li>Trophy of Excellence</li>
-        <li>Special Swag Kit</li>
-        <li>Priority Internship Track</li>
-      </ul>
-    </motion.div>
   );
 }

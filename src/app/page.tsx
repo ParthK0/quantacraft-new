@@ -56,13 +56,9 @@ export default function Home() {
             { label: "About", href: "#about" },
             { label: "Tracks", href: "#tracks" },
             { label: "Timeline", href: "#timeline" },
-            { label: "Prizes", href: "#prizes" },
-            { label: "Sponsors", href: "#sponsors" },
-            { label: "Team", href: "#team" },
-            { label: "FAQs", href: "#faq" },
             { label: "Contact", href: "#footer" }
           ].map((item, i) => (
-            <div key={i} className="nav-sign-container relative">
+            <div key={i} className="nav-sign-container relative" style={{ animationDelay: `${i * -0.8}s` }}>
               <div className="sign-rope left-rope" />
               <div className="sign-rope right-rope" />
               <a href={item.href} className="nav-sign hover:brightness-110 transition-all relative">
