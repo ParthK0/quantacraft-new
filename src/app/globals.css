@@ -61,30 +61,13 @@ h2 {
   font-size: 72px;
   text-align: center;
   margin-bottom: 96px;
-  text-shadow: 6px 6px #A000FF;
+  text-shadow: 6px 6px var(--title-shadow, #A000FF);
   color: #ffffff;
   position: relative;
   line-height: 1.1;
 }
 
 /* Pixelated Logo Overlay above H2 */
-h2::before {
-  content: '';
-  position: absolute;
-  top: 8px;
-  /* Adjusted via absolute positioning */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 500px;
-  height: 150px;
-  background-image: url('https://lh3.googleusercontent.com/pw/AP1GczPqLiIJaav3zAezUz5OcLfIepQxIpuV4_8expT74jViKIZSmnRJy9Menx3QN7kn6VnfebMM0UDaghJVlyFINBXiqjAaBFgNfywePaD8SkkTekfJVSeLlzEnGMpqOGx7xfe9F-4k8IpYUgg5yGq_O_aJ=w1876-h98-s-no-gm?authuser=0');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  image-rendering: pixelated;
-  z-index: -1;
-  pointer-events: none;
-}
 
 /* Corner Text (Satisfy Cursive) */
 h2::after {

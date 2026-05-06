@@ -9,16 +9,22 @@ interface SectionHeaderProps {
   titleClassName?: string;
 }
 
-export default function SectionHeader({ 
-  title, 
-  subtext, 
-  className = "", 
-  titleClassName = "" 
+export default function SectionHeader({
+  title,
+  subtext,
+  className = "",
+  titleClassName = "",
+  titleShadow = "#A000FF"
 }: SectionHeaderProps) {
   return (
     <div className={`max-w-7xl mx-auto px-6 mb-24 relative z-10 flex flex-col items-center ${className}`}>
       {/* Main Title */}
-      <h2 className={`text-center !mb-0 ${titleClassName}`}>{title}</h2>
+      <h2 
+        className={`text-center !mb-0 ${titleClassName}`}
+        style={{ '--title-shadow': titleShadow } as React.CSSProperties}
+      >
+        {title}
+      </h2>
 
       {/* Minecraft Style Divider & Subtext Container */}
       <div className="relative mt-4 flex flex-col items-center">

@@ -6,36 +6,40 @@ import SectionHeader from "@/components/ui/SectionHeader";
 
 const tracks = [
   {
-    trackName: "Blockchain",
-    accentColor: "#f5c518",
-    glowColor: "rgba(245, 197, 24, 0.6)",
+    slug: "blockchain",
+    trackName: "BLOCKCHAIN",
+    accentColor: "#f59e0b",
+    glowColor: "#fbbf24",
     platformImg: "/assets/tracks/Block Chain platform.png",
     titleImg: "/assets/tracks/Blockchain.png",
     idleImg: "/assets/tracks/blockchain1-removebg-preview.png",
     battleImg: "/assets/tracks/blockchain2-removebg-preview.png",
   },
   {
+    slug: "ai-ml",
     trackName: "AI / ML",
-    accentColor: "#b44fff",
-    glowColor: "rgba(180, 79, 255, 0.6)",
+    accentColor: "#a855f7",
+    glowColor: "#c084fc",
     platformImg: "/assets/tracks/AIML platform.png",
     titleImg: "/assets/tracks/AIML.png",
     idleImg: "/assets/tracks/AIMl1-removebg-preview.png",
     battleImg: "/assets/tracks/AIML2-removebg-preview.png",
   },
   {
-    trackName: "Cyber Security",
-    accentColor: "#ff4444",
-    glowColor: "rgba(255, 68, 68, 0.6)",
+    slug: "cyber",
+    trackName: "CYBER SECURITY",
+    accentColor: "#ef4444",
+    glowColor: "#f87171",
     platformImg: "/assets/tracks/Cyber platform.png",
     titleImg: "/assets/tracks/Cyber security.png",
     idleImg: "/assets/tracks/cyber1-removebg-preview.png",
     battleImg: "/assets/tracks/cyber_2-removebg-preview.png",
   },
   {
-    trackName: "Game Development",
-    accentColor: "#00ffcc",
-    glowColor: "rgba(0, 255, 204, 0.6)",
+    slug: "gamedev",
+    trackName: "GAME DEVELOPMENT",
+    accentColor: "#10b981",
+    glowColor: "#34d399",
     platformImg: "/assets/tracks/GameDevelopment platform.png",
     titleImg: "/assets/tracks/Game Development.png",
     idleImg: "/assets/tracks/GameDevelopment1-removebg-preview.png",
@@ -60,11 +64,10 @@ export default function Tracks() {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <SectionHeader 
-          title="HACKATHON TRACKS" 
-          subtext="Select Your Path" 
+        <SectionHeader
+          title="HACKATHON TRACKS"
+          subtext="Select Your Path"
           className="mb-12"
-          titleClassName="multi-color-text"
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 justify-items-center">

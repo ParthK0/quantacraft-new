@@ -1,88 +1,252 @@
+/* Track Specific CSS Variables */
+.track-blockchain {
+  --track-primary: #f59e0b;
+  --track-secondary: #78350f;
+  --track-glow: #fbbf24;
+  --track-bg: #0d0800;
+}
+
+.track-ai-ml {
+  --track-primary: #a855f7;
+  --track-secondary: #3b0764;
+  --track-glow: #c084fc;
+  --track-bg: #060010;
+}
+
+.track-cyber {
+  --track-primary: #ef4444;
+  --track-secondary: #7f1d1d;
+  --track-glow: #f87171;
+  --track-bg: #0d0000;
+}
+
+.track-gamedev {
+  --track-primary: #10b981;
+  --track-secondary: #064e3b;
+  --track-glow: #34d399;
+  --track-bg: #000d07;
+}
+
+/* Card Base Structure */
 .cardContainer {
-  position: relative;
   width: 280px;
-  height: 380px;
-  background: rgba(10, 10, 10, 0.9);
-  padding: 20px;
+  height: 420px;
+  position: relative;
+  background: var(--track-bg);
+  border-radius: 0;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+
+  /* Layer 1: Outer dark frame */
+  border: 3px solid var(--track-secondary);
+
+  /* Layer 4: Animated glow box-shadow (Normal state) */
+  box-shadow:
+    0 0 0 3px var(--track-secondary),
+    0 0 15px color-mix(in srgb, var(--track-glow), transparent 60%),
+    0 0 30px color-mix(in srgb, var(--track-glow), transparent 80%),
+    inset 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Hover State */
+.cardContainer:hover {
+  transform: translateY(-8px) scale(1.02);
+  /* Hover Box Shadow */
+  box-shadow:
+    0 0 0 3px var(--track-primary),
+    0 0 20px color-mix(in srgb, var(--track-glow), transparent 30%),
+    0 0 40px color-mix(in srgb, var(--track-glow), transparent 60%),
+    0 0 60px color-mix(in srgb, var(--track-glow), transparent 80%),
+    inset 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Layer 2: Inner glow border */
+.cardContainer::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 1px solid var(--track-primary);
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Layer 5: Top edge scan line on hover */
+.cardContainer:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--track-primary), transparent);
+  animation: scan-top 1.5s ease-in-out infinite;
+  z-index: 20;
+}
+
+@keyframes scan-top {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Layer 3: Corner Brackets */
+.cornerBracket {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-top: 4px solid var(--track-primary);
+  border-left: 4px solid var(--track-primary);
+  box-shadow:
+    -2px -2px 8px var(--track-glow),
+    inset -2px -2px 4px var(--track-glow);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.cornerTl {
+  top: 0;
+  left: 0;
+}
+
+.cornerTr {
+  top: 0;
+  right: 0;
+  transform: rotate(90deg);
+}
+
+.cornerBl {
+  bottom: 0;
+  left: 0;
+  transform: rotate(270deg);
+}
+
+.cornerBr {
+  bottom: 0;
+  right: 0;
+  transform: rotate(180deg);
+}
+
+/* Corner Spark Dots */
+.spark {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--track-primary);
+  transform: rotate(45deg);
+  box-shadow: 0 0 8px var(--track-glow);
+  z-index: 15;
+  pointer-events: none;
+}
+
+.sparkTl {
+  top: -4px;
+  left: -4px;
+}
+
+.sparkTr {
+  top: -4px;
+  right: -4px;
+}
+
+.sparkBl {
+  bottom: -4px;
+  left: -4px;
+}
+
+.sparkBr {
+  bottom: -4px;
+  right: -4px;
+}
+
+.cardContainer:hover .spark {
+  animation: spark-pulse 1s infinite ease-in-out;
+}
+
+@keyframes spark-pulse {
+
+  0%,
+  100% {
+    transform: rotate(45deg) scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: rotate(45deg) scale(1.5);
+    opacity: 0.6;
+    box-shadow: 0 0 16px var(--track-glow);
+  }
+}
+
+/* Image Area */
+.trackImageWrap {
+  position: relative;
+  width: 100%;
+  height: 315px;
+  /* ≈75% of 420px */
+  padding: 16px 16px 0 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  
-  /* Pixel Border */
-  box-shadow: 
-    0 0 0 3px #000,
-    0 0 0 6px var(--accent-color),
-    0 0 20px var(--glow-color),
-    inset 0 0 30px rgba(0,0,0,0.5);
+  background: radial-gradient(ellipse 70% 60% at 50% 80%,
+      color-mix(in srgb, var(--track-secondary), transparent 40%) 0%,
+      transparent 70%);
 }
 
-.cardContainer:hover {
-  filter: brightness(1.1);
-  box-shadow: 
-    0 0 0 3px #000,
-    0 0 0 6px var(--accent-color),
-    0 0 40px var(--glow-color),
-    inset 0 0 30px rgba(0,0,0,0.5);
-}
-
-/* Platform */
-.platform {
-  position: absolute;
-  bottom: 25%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  height: auto;
-  z-index: 1;
-  transition: filter 0.3s ease;
-  pointer-events: none;
-}
-
-.cardContainer:hover .platform {
-  filter: brightness(1.3);
-}
-
-/* Characters */
 .charWrapper {
-  position: absolute;
-  bottom: 35%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
-  height: 60%;
+  position: relative;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   z-index: 2;
-  pointer-events: none;
+  transition: filter 0.3s;
 }
 
-.idleChar {
+.cardContainer:hover .charWrapper {
+  filter: brightness(1.1) drop-shadow(0 0 20px color-mix(in srgb, var(--track-glow), transparent 40%));
+}
+
+.platformLayer {
   position: absolute;
+  bottom: -5%;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  animation: float 2.5s infinite ease-in-out;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
 }
 
+.platformImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.idleChar,
 .battleChar {
   position: absolute;
   width: 100%;
   height: 100%;
   object-fit: contain;
+  object-position: center bottom;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.battleChar {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+  transform: translateY(10px);
 }
 
 .cardContainer:hover .idleChar {
   opacity: 0;
-  transform: translateY(-20px);
+  transform: translateY(-10px);
 }
 
 .cardContainer:hover .battleChar {
@@ -90,86 +254,90 @@
   transform: translateY(0);
 }
 
-/* Info Layer (Title Image below platform) */
-.infoWrapper {
+/* Track Name Label */
+.trackSeparator {
+  width: 60%;
+  height: 1px;
+  margin: 12px auto 8px auto;
+  background: linear-gradient(90deg,
+      transparent,
+      var(--track-primary),
+      transparent);
+}
+
+.trackLabelWrap {
   position: relative;
-  z-index: 3;
   width: 100%;
-  height: 80px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 15px;
+  margin-bottom: 15px;
+  z-index: 10;
 }
 
 .titleImg {
-  width: 100%;
+  width: 85%;
   height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+  filter: drop-shadow(0 0 8px var(--track-glow));
   transition: transform 0.3s ease, filter 0.3s ease;
-  transform: scale(1.3);
+  transform: scale(1.4);
 }
 
 .cardContainer:hover .titleImg {
-  transform: scale(1.4);
-  filter: drop-shadow(0 0 15px var(--accent-color));
+  transform: scale(1.55);
+  filter: drop-shadow(0 0 15px var(--track-glow));
 }
 
-/* Animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-@keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 20px var(--glow-color); }
-  50% { box-shadow: 0 0 35px var(--glow-color); }
-}
-
-.glowPulseEffect {
-  animation: glowPulse 2s infinite;
-}
-
-/* Scanline Overlay */
-.scanline {
+/* Hover Scan Line Effect (Global overlay) */
+.cardContainer::after {
+  content: "";
   position: absolute;
   top: -100%;
   left: 0;
   width: 100%;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-  z-index: 4;
+  height: 40%;
+  background: linear-gradient(to bottom,
+      transparent 0%,
+      color-mix(in srgb, var(--track-primary), transparent 92%) 50%,
+      transparent 100%);
   pointer-events: none;
-  opacity: 0;
+  z-index: 25;
 }
 
-.cardContainer:hover .scanline {
-  opacity: 1;
-  animation: scanlineMove 1.5s linear infinite;
+.cardContainer:hover::after {
+  animation: card-scan 1.2s ease-in-out;
 }
 
-@keyframes scanlineMove {
-  0% { top: -100%; }
-  100% { top: 100%; }
+@keyframes card-scan {
+  0% {
+    top: -100%;
+  }
+
+  100% {
+    top: 200%;
+  }
 }
 
-.shimmer {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    45deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.05) 50%,
-    transparent 100%
-  );
-  z-index: 5;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+/* Responsive */
+@media (max-width: 1024px) {
+  .cardContainer {
+    height: 380px;
+  }
 }
 
-.cardContainer:hover .shimmer {
-  opacity: 1;
+@media (max-width: 768px) {
+  .cardContainer {
+    height: 320px;
+  }
+
+  .cornerBracket {
+    width: 18px;
+    height: 18px;
+  }
+
+  .trackLabel {
+    font-size: 12px;
+  }
 }
