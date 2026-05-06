@@ -469,7 +469,7 @@ h2::after {
 .about-content {
   max-width: 1300px;
   margin: 0 auto;
-  padding: 0px 40px 60px;
+  padding: 0px 40px 20px;
   line-height: 2;
   font-size: 14px;
   position: relative;
@@ -973,6 +973,13 @@ h2::after {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }

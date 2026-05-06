@@ -78,7 +78,6 @@ export default function Home() {
       {/* Sections */}
       <Hero />
       <ScrollingMarquee />
-      <SectionDivider />
       <About />
       <SectionDivider />
       <Tracks />

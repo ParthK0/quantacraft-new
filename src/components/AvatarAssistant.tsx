@@ -68,8 +68,8 @@ export default function AvatarAssistant() {
               <div className="w-0 h-0 border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent border-r-[12px] border-r-white z-10" />
               
               {/* Main Bubble Box */}
-              <div className="bg-[#A000FF] border-[2px] border-white px-6 py-4 shadow-[4px_4px_0px_rgba(0,0,0,0.5)] min-w-[240px] max-w-[320px]">
-                <p className="text-white font-pixel text-sm leading-tight uppercase tracking-widest">
+              <div className="bg-[#A000FF] border-[4px] border-white px-6 py-4 shadow-[6px_6px_0px_rgba(0,0,0,0.6)] min-w-[280px] max-w-[400px]">
+                <p className="text-white font-minecraft text-[11px] leading-[1.8] uppercase tracking-[2px]">
                   {quotes[currentSection] || "Build. Solve. Conquer."}
                 </p>
               </div>
