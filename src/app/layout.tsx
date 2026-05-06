@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
-import { VT323, Outfit, Press_Start_2P, Satisfy } from "next/font/google";
+import { VT323, Outfit, Press_Start_2P, Satisfy, Fira_Code } from "next/font/google";
 import "./globals.css";
+
+const firaCode = Fira_Code({
+  variable: "--font-fira-code",
+  subsets: ["latin"],
+});
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -37,7 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${outfit.variable} ${vt323.variable} ${pressStart2P.variable} ${satisfy.variable} font-sans antialiased bg-black text-white`} suppressHydrationWarning>
+      <body className={`${outfit.variable} ${vt323.variable} ${pressStart2P.variable} ${satisfy.variable} ${firaCode.variable} font-sans antialiased bg-black text-white`} suppressHydrationWarning>
         {children}
       </body>
     </html>

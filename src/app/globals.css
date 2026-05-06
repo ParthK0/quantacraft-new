@@ -23,7 +23,8 @@ body {
 
 @layer components {
   .pixel-border {
-    @apply border-4 border-white shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)]; /* DO NOT ADD SPACES IN RGBA */
+    @apply border-4 border-white shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)];
+    /* DO NOT ADD SPACES IN RGBA */
   }
 
   .pixel-text {
@@ -33,6 +34,10 @@ body {
   .font-minecraft {
     font-family: var(--font-press-start), cursive;
     image-rendering: pixelated;
+  }
+
+  .font-fira {
+    font-family: var(--font-fira-code), monospace;
   }
 
   .font-cursive {
@@ -95,6 +100,11 @@ h2::after {
   letter-spacing: 2px;
   font-family: var(--font-satisfy), cursive;
   z-index: 10;
+}
+
+.about-header h2::after {
+  color: #c084fc;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 /* Responsive adjustments */
@@ -208,15 +218,19 @@ h2::after {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  margin: -10px auto 0; /* Increased negative margin to close the gap */
+  margin: -10px auto 0;
+  /* Increased negative margin to close the gap */
   position: relative;
   animation: lanternGlow 2s ease-in-out infinite;
 }
 
 @keyframes pendulum-swing {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: rotate(-5deg);
   }
+
   50% {
     transform: rotate(5deg);
   }
@@ -389,10 +403,6 @@ h2::after {
 .about-section {
   position: relative;
   overflow: hidden;
-  background-image: url('/assets/about/sky.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 .about-header {
@@ -616,6 +626,7 @@ h2::after {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -660,7 +671,7 @@ h2::after {
   z-index: 1;
 }
 
-#prizes > div {
+#prizes>div {
   position: relative;
   z-index: 2;
   max-width: 80rem;

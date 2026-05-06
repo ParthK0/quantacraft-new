@@ -5,6 +5,15 @@ import { motion } from "framer-motion";
 export default function Sponsors() {
   return (
     <section id="sponsors" className="py-40 px-4 relative overflow-hidden">
+      {/* Background Image */}
+      <img
+        src="/assets/sponsor/sponsor.jpg"
+        alt="Sponsors Backdrop"
+        className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
+      />
+      {/* Overlay for readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/80 z-[1] pointer-events-none" />
+
       <div className="max-w-7xl mx-auto text-center relative z-10">
         <h2 data-corner-text="Forged in Alliance">OUR SPONSORS</h2>
         

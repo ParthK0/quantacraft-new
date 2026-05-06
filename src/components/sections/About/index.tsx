@@ -5,23 +5,34 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <section id="about" className="about-section py-32 px-4">
-      <div className="about-header mt-20 relative">
-        {/* Banner Ropes */}
-        <div className="absolute top-[-100px] left-[15%] w-[4px] h-[100px] bg-[#3e2723] border-l-2 border-[#2e1a12] border-r-2 border-[#5d4037] z-10" />
-        <div className="absolute top-[-100px] right-[15%] w-[4px] h-[100px] bg-[#3e2723] border-l-2 border-[#2e1a12] border-r-2 border-[#5d4037] z-10" />
-        <h2 data-corner-text="Experience Premium">
+    <section id="about" className="about-section py-32 px-4 relative overflow-hidden">
+      {/* Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
+      >
+        <source src="/assets/about/mp_.mp4" type="video/mp4" />
+      </video>
+      
+      {/* Overlay to ensure readability */}
+      <div className="absolute inset-0 bg-black/60 z-[1]" />
+
+      <div className="about-header mt-20 relative z-10">
+        <h2 className="text-[#ffffff]" data-corner-text="Build. Solve. Conquer.">
           ABOUT QUANTCRAFT
         </h2>
       </div>
 
-      <div className="about-content">
+      <div className="about-content relative z-10">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="about-text text-zinc-900 font-minecraft text-[14px] font-bold leading-[1.8]"
+          className="about-text text-[#e2e8f0] font-minecraft text-[12px] md:text-[14px] leading-[2] drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] uppercase tracking-widest"
         >
           <p className="mb-8">
             QuantCraft 1.0 is the next evolution of Rajasthan's biggest student-run hackathon—a build space where students and innovators from across the country come together to create impactful, real-world tech solutions.

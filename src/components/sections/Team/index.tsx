@@ -177,8 +177,8 @@ const team: TeamMember[] = [
 
 // Triple the array so we always have cards on both sides for the illusion
 const CARD_W = 260;   // px  (card width)
-const GAP     = 24;   // px  (gap between cards)
-const STEP    = CARD_W + GAP;
+const GAP = 24;   // px  (gap between cards)
+const STEP = CARD_W + GAP;
 
 const looped = [...team, ...team, ...team]; // 36 items
 
@@ -202,10 +202,10 @@ const InstagramIcon = () => (
 const AUTO_SPEED = 1.3; // px per animation frame (~78 px/s at 60 fps)
 
 export default function Team() {
-  const trackRef  = useRef<HTMLDivElement>(null);
-  const rafRef    = useRef<number>(0);
-  const paused    = useRef(false);   // true while hovered or mid-arrow-click
-  const nudging   = useRef(false);   // true while smooth-scrolling an arrow
+  const trackRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number>(0);
+  const paused = useRef(false);   // true while hovered or mid-arrow-click
+  const nudging = useRef(false);   // true while smooth-scrolling an arrow
 
   // Array of booleans, one for each team member
   const [memberStates, setMemberStates] = useState<boolean[]>(() =>
@@ -233,8 +233,8 @@ export default function Team() {
     const el = trackRef.current;
     if (!el) return;
     const midStart = team.length * STEP;
-    const midEnd   = midStart + team.length * STEP;
-    if (el.scrollLeft < STEP * 2)               el.scrollLeft += team.length * STEP;
+    const midEnd = midStart + team.length * STEP;
+    if (el.scrollLeft < STEP * 2) el.scrollLeft += team.length * STEP;
     else if (el.scrollLeft >= midEnd - STEP * 2) el.scrollLeft -= team.length * STEP;
   }, []);
 
@@ -270,7 +270,7 @@ export default function Team() {
   }, [wrapIfNeeded]);
 
   // ── Pause/resume on hover ─────────────────────────────────────────────────
-  const pause  = useCallback(() => { paused.current = true;  }, []);
+  const pause = useCallback(() => { paused.current = true; }, []);
   const resume = useCallback(() => { paused.current = false; }, []);
 
   // handleScroll kept for the native scroll event (warp only when arrow-nudge done)
@@ -280,6 +280,15 @@ export default function Team() {
 
   return (
     <section id="team" className="py-32 bg-zinc-950 overflow-hidden relative">
+      {/* Background Image */}
+      <img
+        src="/assets/team/minecraft.jpg"
+        alt="Team Backdrop"
+        className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none opacity-40"
+      />
+      {/* Overlay for readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/80 z-[1] pointer-events-none" />
+
       {/* Heading */}
       <div className="max-w-7xl mx-auto px-6 mb-24 relative z-10 pt-20">
         <h2 data-corner-text="Infinite loop of innovation">THE QUANTA CREW</h2>
@@ -330,7 +339,7 @@ export default function Team() {
               className="group relative shrink-0"
               style={{ width: CARD_W, aspectRatio: "3/4", height: 540 }}
             >
-              <MinecraftProfileCard 
+              <MinecraftProfileCard
                 name={member.name}
                 role={member.role}
                 squad={member.squad}
@@ -351,7 +360,7 @@ export default function Team() {
 
       {/* Rail track decoration */}
       <div className="absolute bottom-20 left-0 right-0 h-px opacity-30 pointer-events-none"
-           style={{ background: "repeating-linear-gradient(to right,#3f3f46 0,#3f3f46 24px,transparent 24px,transparent 40px)" }} />
+        style={{ background: "repeating-linear-gradient(to right,#3f3f46 0,#3f3f46 24px,transparent 24px,transparent 40px)" }} />
     </section>
   );
 }
