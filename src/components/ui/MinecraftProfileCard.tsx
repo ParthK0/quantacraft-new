@@ -67,7 +67,7 @@ export default function MinecraftProfileCard({
           boxShadow: `0 0 20px ${glowColor}`
         }}
       >
-        <div 
+        <div
           className="profile-image-inner relative border-[3px] border-black/50"
           style={{ background: isOrange ? "#1a0a05" : "#05161a" }}
         >

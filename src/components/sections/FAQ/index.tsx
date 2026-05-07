@@ -2,7 +2,8 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { GiWarPick } from "react-icons/gi";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 const faqs = [
   {
@@ -33,14 +34,32 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section id="faq" className="py-32 px-4 max-w-3xl mx-auto overflow-visible">
-      <div className="text-center mb-24 pt-20">
-        <h2 data-corner-text="Help Center">COMMAND CENTER (FAQ)</h2>
-      </div>
-      <div className="space-y-4">
-        {faqs.map((faq, i) => (
-          <FAQItem key={i} faq={faq} />
-        ))}
+    <section id="faq" className="relative py-16 overflow-hidden">
+      {/* 📹 Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover -z-10"
+      >
+        <source src="/assets/FAQs/FAQs.mp4" type="video/mp4" />
+      </video>
+
+      {/* 🌑 Overlay for readability */}
+      <div className="absolute inset-0 bg-black/60 -z-10" />
+
+      <div className="max-w-3xl mx-auto px-4 relative z-10">
+        <SectionHeader 
+          title="FAQs" 
+          subtext="" 
+          className="pt-0"
+        />
+        <div className="space-y-4">
+          {faqs.map((faq, i) => (
+            <FAQItem key={i} faq={faq} />
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -50,24 +69,43 @@ function FAQItem({ faq }: { faq: { q: string; a: string } }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border border-white/10 rounded-2xl overflow-hidden bg-zinc-900/50">
+    <div className="group relative border-[3px] border-[#A000FF] bg-[#0a0a0a] overflow-hidden shadow-[0_0_15px_rgba(160,0,255,0.2)]">
+      {/* 🖼️ Question Frame Backdrop */}
+      <div 
+        className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity pointer-events-none"
+        style={{
+          backgroundImage: 'url("/assets/FAQs/FAQs qus frame backdrop.jpg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      />
+
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full p-6 flex items-center justify-between text-left hover:bg-white/5 transition-colors"
+        className="relative w-full p-5 flex items-center justify-between text-left z-10"
       >
-        <span className="font-pixel text-sm">{faq.q}</span>
-        <ChevronDown className={`w-5 h-5 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+        <span className="font-minecraft text-[11px] text-white tracking-[1px] drop-shadow-[2px_2px_0_#A000FF] uppercase">
+          {faq.q}
+        </span>
+        <div className={`transition-transform duration-300 ${isOpen ? "rotate-45 scale-110" : ""}`}>
+          <GiWarPick className="w-6 h-6 text-white drop-shadow-[2px_2px_0_#A000FF]" />
+        </div>
       </button>
+
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="overflow-hidden"
+            className="relative overflow-hidden z-10"
           >
-            <div className="p-6 pt-0 text-zinc-400 text-sm leading-relaxed border-t border-white/5">
-              {faq.a}
+            <div className="p-5 pt-0 border-t-2 border-[#A000FF]/30">
+              <div className="bg-black/40 p-4 border border-[#A000FF]/20">
+                <p className="font-pixel text-[13px] text-zinc-200 leading-relaxed tracking-wider">
+                  {faq.a}
+                </p>
+              </div>
             </div>
           </motion.div>
         )}
