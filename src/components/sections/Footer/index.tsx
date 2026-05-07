@@ -34,7 +34,6 @@ export default function Footer() {
       {/* Main Footer Container */}
       <div className="jungle-footer-bg pt-12 pb-0 relative">
         <div className="mossy-overlay" />
-        <div className="creeper-watermark" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <motion.div
@@ -95,7 +94,7 @@ export default function Footer() {
             </div>
 
             {/* [Col 2 - Quick Links] */}
-            <div className="lg:border-l-2 lg:border-dashed lg:border-[#166534] pl-12 mb-8 lg:mb-0">
+            <div className="lg:border-l-2 lg:border-dashed lg:border-[#A000FF]/30 pl-12 mb-8 lg:mb-0">
               <h3 className="footer-heading">Quick Links</h3>
               <ul className="space-y-4">
                 {['Home', 'About', 'Tracks', 'Prizes', 'FAQs'].map((link) => (
@@ -109,7 +108,7 @@ export default function Footer() {
             </div>
 
             {/* [Col 3 - Contact Us] */}
-            <div className="lg:border-l-2 lg:border-dashed lg:border-[#166534] pl-12 mb-8 lg:mb-0">
+            <div className="lg:border-l-2 lg:border-dashed lg:border-[#A000FF]/30 pl-12 mb-8 lg:mb-0">
               <h3 className="footer-heading">Contact Us</h3>
               <div className="space-y-5">
                 <div className="flex flex-col">
@@ -130,11 +129,11 @@ export default function Footer() {
             </div>
 
             {/* [Col 4 - Map] */}
-            <div className="lg:border-l-2 lg:border-dashed lg:border-[#166534] pl-12">
+            <div className="lg:border-l-2 lg:border-dashed lg:border-[#A000FF]/30 pl-12">
               <h3 className="footer-heading flex items-center gap-2">
                 <span className="text-xl">📍</span> FIND US
               </h3>
-              <div className="bg-[#0f1a0f] border-[3px] border-[#22c55e] shadow-[0_0_15px_#22c55e,inset_0_0_10px_rgba(34,197,94,0.1)] rounded-none p-1 overflow-hidden h-[200px] relative group">
+              <div className="bg-[#0a0a0a] border-[3px] border-[#A000FF] shadow-[0_0_15px_#A000FF,inset_0_0_10px_rgba(160,0,255,0.1)] rounded-none p-1 overflow-hidden h-[200px] relative group">
                 <iframe
                   className="w-full h-full border-0 transition-all duration-500"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.387114631383!2d77.53484217625126!3d28.377317675806653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc66264903333%3A0xc3c5d6c8b093f412!2sGalgotias%20University!5e0!3m2!1sen!2sin!4v1714742400000!5m2!1sen!2sin"

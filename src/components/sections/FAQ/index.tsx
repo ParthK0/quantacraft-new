@@ -49,7 +49,7 @@ export default function FAQ() {
       </video>
 
       {/* 🌑 Overlay for readability (Reduced opacity for more brightness) */}
-      <div className="absolute inset-0 bg-black/30 -z-10" />
+      <div className="absolute inset-0 bg-black/20 -z-10" />
 
       <div className="max-w-3xl mx-auto px-4 relative z-10">
         <SectionHeader 
