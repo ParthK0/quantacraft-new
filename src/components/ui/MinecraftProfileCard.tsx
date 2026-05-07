@@ -27,6 +27,8 @@ interface MinecraftProfileCardProps {
   squad: string;
   description: string;
   image: string;
+  minecraftImage?: string;
+  isMinecraft?: boolean;
   githubUrl?: string;
   linkedinUrl?: string;
   instagramUrl?: string;
@@ -39,6 +41,8 @@ export default function MinecraftProfileCard({
   squad,
   description,
   image,
+  minecraftImage,
+  isMinecraft = false,
   githubUrl,
   linkedinUrl,
   instagramUrl,
@@ -71,15 +75,43 @@ export default function MinecraftProfileCard({
           className="profile-image-inner relative border-[3px] border-black/50"
           style={{ background: isOrange ? "#1a0a05" : "#05161a" }}
         >
-          <Image
-            src={image}
-            alt={name}
-            fill
-            className="object-cover object-center image-rendering-pixelated"
-            onError={(e) => {
-              (e.currentTarget as HTMLImageElement).src = "https://minecraft.wiki/images/Steve_JE2_BE1.png";
-            }}
-          />
+          {/* Normal Image */}
+          <motion.div
+            initial={false}
+            animate={{ opacity: isMinecraft && minecraftImage ? 0 : 1 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={image}
+              alt={name}
+              fill
+              className="object-cover object-center"
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).src = "https://minecraft.wiki/images/Steve_JE2_BE1.png";
+              }}
+            />
+          </motion.div>
+
+          {/* Minecraft Image */}
+          {minecraftImage && (
+            <motion.div
+              initial={false}
+              animate={{ opacity: isMinecraft ? 1 : 0 }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={minecraftImage}
+                alt={`${name} Minecraft`}
+                fill
+                className="object-cover object-center image-rendering-pixelated"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = "https://minecraft.wiki/images/Steve_JE2_BE1.png";
+                }}
+              />
+            </motion.div>
+          )}
         </div>
       </div>
 

@@ -226,7 +226,7 @@ export default function Team() {
         }
         return next;
       });
-    }, 2000);
+    }, 1400);
     return () => clearInterval(interval);
   }, []);
 
@@ -348,7 +348,9 @@ export default function Team() {
                 role={member.role}
                 squad={member.squad}
                 description={member.bio}
-                image={memberStates[i % team.length] && member.imageMinecraft ? member.imageMinecraft : member.image}
+                image={member.image}
+                minecraftImage={member.imageMinecraft}
+                isMinecraft={memberStates[i % team.length]}
                 githubUrl={member.social.github}
                 linkedinUrl={member.social.linkedin}
                 instagramUrl={member.social.instagram}

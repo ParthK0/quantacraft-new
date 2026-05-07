@@ -1,6 +1,5 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { GiWarPick } from "react-icons/gi";
 import SectionHeader from "@/components/ui/SectionHeader";
@@ -36,7 +35,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="relative py-16 overflow-hidden">
+    <section id="faq" className="relative py-16 overflow-hidden z-[100]">
       {/* 📹 Background Video */}
       <video
         autoPlay
@@ -52,17 +51,17 @@ export default function FAQ() {
       <div className="absolute inset-0 bg-black/20 -z-10" />
 
       <div className="max-w-3xl mx-auto px-4 relative z-10">
-        <SectionHeader 
-          title="FAQs" 
-          subtext="" 
+        <SectionHeader
+          title="FAQs"
+          subtext=""
           className="pt-0"
         />
         <div className="space-y-4">
           {faqs.map((faq, i) => (
-            <FAQItem 
-              key={i} 
-              faq={faq} 
-              isOpen={openIndex === i} 
+            <FAQItem
+              key={i}
+              faq={faq}
+              isOpen={openIndex === i}
               onToggle={() => setOpenIndex(openIndex === i ? null : i)}
             />
           ))}
@@ -72,19 +71,19 @@ export default function FAQ() {
   );
 }
 
-function FAQItem({ 
-  faq, 
-  isOpen, 
-  onToggle 
-}: { 
-  faq: { q: string; a: string }; 
+function FAQItem({
+  faq,
+  isOpen,
+  onToggle
+}: {
+  faq: { q: string; a: string };
   isOpen: boolean;
   onToggle: () => void;
 }) {
   return (
-    <div className="group relative border-[3px] border-[#A000FF] bg-[#0a0a0a] overflow-hidden shadow-[0_0_15px_rgba(160,0,255,0.2)]">
+    <div className="group relative border-[3px] border-[#A000FF] bg-[#0a0a0a] overflow-visible z-10 shadow-[0_0_15px_rgba(160,0,255,0.2)]">
       {/* 🖼️ Question Frame Backdrop */}
-      <div 
+      <div
         className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity pointer-events-none"
         style={{
           backgroundImage: 'url("/assets/FAQs/FAQs qus frame backdrop.jpg")',
@@ -105,24 +104,17 @@ function FAQItem({
         </div>
       </button>
 
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="relative overflow-hidden z-10"
-          >
-            <div className="p-5 pt-0">
-              <div className="p-4">
-                <p className="font-minecraft text-[10px] text-zinc-100 leading-relaxed tracking-wider drop-shadow-[1px_1px_0_rgba(0,0,0,0.8)]">
-                  {faq.a}
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div
+        className={`relative overflow-hidden transition-all duration-300 ease-in-out z-20 ${isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}
+      >
+        <div className="p-5 pt-0">
+          <div className="p-4">
+            <p className="font-minecraft text-[10px] text-zinc-100 leading-relaxed tracking-wider drop-shadow-[1px_1px_0_rgba(0,0,0,0.8)]">
+              {faq.a}
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
