@@ -728,10 +728,10 @@ h2::after {
 .footer-heading {
   font-family: var(--font-press-start), cursive;
   font-size: 14px;
-  color: #67e8f9;
+  color: #ffffff;
   text-shadow:
-    0 0 10px #ffaa00,
-    0 0 20px #A000FF;
+    2px 2px 0 #A000FF,
+    0 0 15px rgba(160, 0, 255, 0.6);
   text-transform: uppercase;
   margin-bottom: 20px;
   letter-spacing: 1px;
@@ -753,8 +753,9 @@ h2::after {
 }
 
 .footer-label {
-  color: #86efac;
+  color: #67e8f9;
   font-weight: bold;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
 }
 
 /* ── Grass Block Character Base ── */
