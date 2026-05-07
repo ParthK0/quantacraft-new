@@ -33,6 +33,8 @@ const faqs = [
 ];
 
 export default function FAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   return (
     <section id="faq" className="relative py-16 overflow-hidden">
       {/* 📹 Background Video */}
@@ -57,7 +59,12 @@ export default function FAQ() {
         />
         <div className="space-y-4">
           {faqs.map((faq, i) => (
-            <FAQItem key={i} faq={faq} />
+            <FAQItem 
+              key={i} 
+              faq={faq} 
+              isOpen={openIndex === i} 
+              onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+            />
           ))}
         </div>
       </div>
@@ -65,9 +72,15 @@ export default function FAQ() {
   );
 }
 
-function FAQItem({ faq }: { faq: { q: string; a: string } }) {
-  const [isOpen, setIsOpen] = useState(false);
-
+function FAQItem({ 
+  faq, 
+  isOpen, 
+  onToggle 
+}: { 
+  faq: { q: string; a: string }; 
+  isOpen: boolean;
+  onToggle: () => void;
+}) {
   return (
     <div className="group relative border-[3px] border-[#A000FF] bg-[#0a0a0a] overflow-hidden shadow-[0_0_15px_rgba(160,0,255,0.2)]">
       {/* 🖼️ Question Frame Backdrop */}
@@ -81,7 +94,7 @@ function FAQItem({ faq }: { faq: { q: string; a: string } }) {
       />
 
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={onToggle}
         className="relative w-full p-5 flex items-center justify-between text-left z-10"
       >
         <span className="font-minecraft text-[11px] text-white tracking-[1px] drop-shadow-[2px_2px_0_#A000FF] uppercase">
@@ -100,9 +113,9 @@ function FAQItem({ faq }: { faq: { q: string; a: string } }) {
             exit={{ height: 0, opacity: 0 }}
             className="relative overflow-hidden z-10"
           >
-            <div className="p-5 pt-0 border-t-2 border-[#A000FF]/30">
-              <div className="bg-black/40 p-4 border border-[#A000FF]/20">
-                <p className="font-pixel text-[13px] text-zinc-200 leading-relaxed tracking-wider">
+            <div className="p-5 pt-0">
+              <div className="p-4">
+                <p className="font-minecraft text-[10px] text-zinc-100 leading-relaxed tracking-wider drop-shadow-[1px_1px_0_rgba(0,0,0,0.8)]">
                   {faq.a}
                 </p>
               </div>
