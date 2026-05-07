@@ -77,9 +77,16 @@ const prizesData = [
   },
 ];
 
-export default function Prizes() {
-  return (
-    <section id="prizes" className="pt-[120px] pb-[40px] px-4 relative overflow-hidden bg-zinc-950 min-h-[100vh] flex flex-col justify-center">
+    <section 
+      id="prizes" 
+      className="pt-[120px] pb-[40px] px-4 relative overflow-hidden min-h-[100vh] flex flex-col justify-center"
+      style={{
+        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/prizes/bg1.png")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
       {/* Central Spotlight Overlay */}
       <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, #2d1b6933 0%, transparent 70%)" }} />
 
