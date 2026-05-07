@@ -30,7 +30,6 @@ export default function PrizeChest({ data }: { data: PrizeData }) {
       onMouseEnter={() => handleInteraction(true)}
       onMouseLeave={() => handleInteraction(false)}
       onClick={() => setIsOpen(!isOpen)}
-      whileHover={{ y: -8 }}
       transition={{ duration: 0.2 }}
       className="relative flex flex-col items-center text-center cursor-pointer group w-full"
     >
@@ -70,12 +69,10 @@ export default function PrizeChest({ data }: { data: PrizeData }) {
                 animate={{
                   opacity: 1,
                   scale: 1,
-                  y: [0, -6, 0],
                 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{
                   opacity: { duration: 0.2 },
-                  y: { repeat: Infinity, duration: 3, ease: "easeInOut" },
                   scale: { duration: 0.2, ease: "easeIn" },
                 }}
               />
@@ -99,15 +96,21 @@ export default function PrizeChest({ data }: { data: PrizeData }) {
       </div>
 
       {/* Content */}
-      <div className="mt-[4px] flex flex-col items-center drop-shadow-md text-center w-full relative z-[3]">
+      <div className="mt-[12px] flex flex-col items-center drop-shadow-md text-center w-full relative z-[3]">
+        <span 
+          className="font-pixel text-[#ffffff] text-[18px] leading-none mb-1"
+          style={{ textShadow: `0 0 10px ${data.glowColor}` }}
+        >
+          {data.id === 'participants' ? '' : `#${data.id === 'first' ? '1' : data.id === 'second' ? '2' : data.id === 'third' ? '3' : ''}`}
+        </span>
         <h3 
-          className={`font-pixel text-[#ffffff] uppercase tracking-[2px] leading-none ${data.labelClass}`} 
+          className={`font-pixel text-[#ffffff] uppercase tracking-[1px] leading-tight ${data.labelClass}`} 
           style={{ textShadow: `0 0 10px ${data.glowColor}` }}
         >
           {data.label}
         </h3>
         <p 
-          className={`font-bold text-white tracking-tighter mt-1 ${data.amountClass}`} 
+          className={`font-pixel text-white mt-1 ${data.amountClass}`} 
           style={{ textShadow: `0 0 15px ${data.glowColor}` }}
         >
           {data.amount}
