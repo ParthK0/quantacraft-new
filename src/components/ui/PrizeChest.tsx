@@ -35,13 +35,13 @@ export default function PrizeChest({ data }: { data: PrizeData }) {
     >
       {/* Container for Chest and Glow to maintain center alignment */}
       <div className={`relative flex items-center justify-center ${data.sizeClass} aspect-square`}>
-        {/* Background Glow Pool */}
+        {/* Background Glow Pool with Pulse */}
         <motion.div
           className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-[1] ${data.glowClass}`}
           initial={{ opacity: data.idleOpacity[0], scale: 1 }}
           animate={{
-            opacity: isOpen ? 1.0 : data.idleOpacity,
-            scale: isOpen ? 1.4 : 1,
+            opacity: isOpen ? 1.0 : [data.idleOpacity[0], data.idleOpacity[1], data.idleOpacity[0]],
+            scale: isOpen ? 1.4 : [1, 1.05, 1],
           }}
           transition={{
             opacity: {
@@ -49,10 +49,15 @@ export default function PrizeChest({ data }: { data: PrizeData }) {
               repeat: isOpen ? 0 : Infinity,
               ease: isOpen ? "easeOut" : "easeInOut",
             },
-            scale: { duration: 0.4, ease: "easeOut" },
+            scale: { 
+              duration: isOpen ? 0.4 : 4, 
+              repeat: isOpen ? 0 : Infinity,
+              ease: "easeInOut" 
+            },
           }}
           style={{
             background: `radial-gradient(ellipse at center, ${data.glowColor}99 0%, transparent ${data.glowRadius})`,
+            filter: `blur(8px) drop-shadow(0 0 10px ${data.glowColor})`,
           }}
         />
 
@@ -69,10 +74,12 @@ export default function PrizeChest({ data }: { data: PrizeData }) {
                 animate={{
                   opacity: 1,
                   scale: 1,
+                  y: [0, -10, 0], // Floating animation
                 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{
                   opacity: { duration: 0.2 },
+                  y: { repeat: Infinity, duration: 3, ease: "easeInOut" },
                   scale: { duration: 0.2, ease: "easeIn" },
                 }}
               />
@@ -96,21 +103,21 @@ export default function PrizeChest({ data }: { data: PrizeData }) {
       </div>
 
       {/* Content */}
-      <div className="mt-[12px] flex flex-col items-center drop-shadow-md text-center w-full relative z-[3]">
+      <div className="mt-[20px] flex flex-col items-center drop-shadow-md text-center w-full relative z-[3]">
         <span 
-          className="font-pixel text-[#ffffff] text-[18px] leading-none mb-1"
-          style={{ textShadow: `0 0 10px ${data.glowColor}` }}
+          className="font-minecraft text-[12px] md:text-[14px] leading-none mb-2"
+          style={{ color: data.glowColor, textShadow: `0 0 8px ${data.glowColor}66` }}
         >
           {data.id === 'participants' ? '' : `#${data.id === 'first' ? '1' : data.id === 'second' ? '2' : data.id === 'third' ? '3' : ''}`}
         </span>
         <h3 
-          className={`font-pixel text-[#ffffff] uppercase tracking-[1px] leading-tight ${data.labelClass}`} 
-          style={{ textShadow: `0 0 10px ${data.glowColor}` }}
+          className={`font-minecraft uppercase tracking-wider leading-tight mb-2 ${data.labelClass}`} 
+          style={{ color: data.glowColor, textShadow: `0 0 12px ${data.glowColor}aa` }}
         >
           {data.label}
         </h3>
         <p 
-          className={`font-pixel text-white mt-1 ${data.amountClass}`} 
+          className={`font-minecraft text-white ${data.amountClass}`} 
           style={{ textShadow: `0 0 15px ${data.glowColor}` }}
         >
           {data.amount}
