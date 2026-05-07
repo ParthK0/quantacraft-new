@@ -35,7 +35,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="relative py-16 overflow-hidden z-[100]">
+    <section id="faq" className="relative py-16 overflow-hidden">
       {/* 📹 Background Video */}
       <video
         autoPlay
@@ -81,10 +81,10 @@ function FAQItem({
   onToggle: () => void;
 }) {
   return (
-    <div className="group relative border-[3px] border-[#A000FF] bg-[#0a0a0a] overflow-visible z-10 shadow-[0_0_15px_rgba(160,0,255,0.2)]">
-      {/* 🖼️ Question Frame Backdrop */}
+    <div className="group relative border-[3px] border-[#A000FF] bg-[#0a0a0a]/40 overflow-hidden z-10 shadow-[0_0_15px_rgba(160,0,255,0.2)]">
+      {/* 🖼️ Card Backdrop (Covers both Question and Answer) */}
       <div
-        className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity pointer-events-none"
+        className="absolute inset-0 opacity-70 group-hover:opacity-60 transition-opacity pointer-events-none -z-10"
         style={{
           backgroundImage: 'url("/assets/FAQs/FAQs qus frame backdrop.jpg")',
           backgroundSize: 'cover',

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import SectionHeader from "@/components/ui/SectionHeader";
 import { 
   Rocket, 
   FileText, 
@@ -62,11 +63,11 @@ export default function Timeline() {
       {/* Background Stars/Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(160,0,255,0.1),transparent_70%)]" />
 
-      <div className="max-w-7xl mx-auto text-center mb-24 relative z-10 pt-20">
-        <h2 data-corner-text="Tick Tock Hack!!">
-          EVENT TIMELINE
-        </h2>
-      </div>
+      <SectionHeader 
+        title="EVENT TIMELINE" 
+        subtext="Tick Tock Hack!!"
+        className="pt-20 mb-24"
+      />
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Central Vertical Line */}

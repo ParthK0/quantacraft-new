@@ -33,7 +33,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="relative">
+    <>
       <LoadingScreen />
 
       {/* Navigation */}
@@ -41,7 +41,7 @@ export default function Home() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: showNav ? 0 : -100, opacity: showNav ? 1 : 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="fixed top-0 left-0 right-0 z-50 flex justify-between items-start px-12 pt-4 pointer-events-none"
+        className="fixed top-0 left-0 right-0 z-[9999] flex justify-between items-start px-12 pt-4 pointer-events-none"
       >
         {/* Left Lantern */}
         <div className="lantern-container hidden lg:block -mt-4">
@@ -75,7 +75,8 @@ export default function Home() {
         </div>
       </motion.nav>
 
-      {/* Sections */}
+      <main className="relative">
+        {/* Sections */}
       <Hero />
       <ScrollingMarquee />
       <About />
@@ -92,9 +93,10 @@ export default function Home() {
       <SectionDivider />
       <FAQ />
       <Footer />
-
-      {/* Persistent Avatar Assistant */}
-      <AvatarAssistant />
     </main>
+
+    {/* Persistent Avatar Assistant */}
+    <AvatarAssistant />
+    </>
   );
 }
