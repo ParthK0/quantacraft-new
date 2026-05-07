@@ -77,6 +77,8 @@ const prizesData = [
   },
 ];
 
+export default function Prizes() {
+  return (
     <section 
       id="prizes" 
       className="pt-[120px] pb-[40px] px-4 relative overflow-hidden min-h-[100vh] flex flex-col justify-center"
