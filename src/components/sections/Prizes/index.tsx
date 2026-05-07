@@ -81,7 +81,7 @@ export default function Prizes() {
   return (
     <section 
       id="prizes" 
-      className="pt-[60px] pb-[40px] px-4 relative overflow-hidden min-h-[100vh] flex flex-col justify-center"
+      className="py-16 md:py-24 px-4 relative overflow-hidden flex flex-col items-center justify-center"
       style={{
         backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/prizes/bg1.png")',
         backgroundSize: 'cover',
@@ -96,44 +96,60 @@ export default function Prizes() {
         <SectionHeader
           title="PRIZE POOL"
           subtext="Loot Table Revealed"
-          className="mb-12"
+          className="mb-16"
         />
 
         {/* Desktop Layout: 2 flex rows */}
-        <div className="hidden md:flex flex-col items-center justify-center gap-0 w-full">
-          {/* Row 1: 2nd, 1st, 3rd */}
-          <div className="flex flex-row items-end justify-center gap-[20px] w-full">
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }}>
-              <PrizeChest data={prizesData[1]} /> {/* 2nd */}
-            </motion.div>
-            <motion.div className="mb-[80px] z-10" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0 }}>
-              <PrizeChest data={prizesData[0]} /> {/* 1st */}
-            </motion.div>
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
-              <PrizeChest data={prizesData[2]} /> {/* 3rd */}
-            </motion.div>
+        <div className="hidden md:flex flex-col items-center justify-center w-full">
+          {/* Row 1: 2nd, 1st, 3rd - Symmetrical layout */}
+          <div className="grid grid-cols-[1fr_400px_1fr] items-end w-full max-w-[1200px] gap-4 md:gap-8">
+            {/* Slot for 2nd */}
+            <div className="flex justify-end">
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }} className="w-full max-w-[280px]">
+                <PrizeChest data={prizesData[1]} />
+              </motion.div>
+            </div>
+
+            {/* Slot for 1st - Lifted */}
+            <div className="flex justify-center">
+              <motion.div className="mb-[60px] z-10 w-full" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0 }}>
+                <PrizeChest data={prizesData[0]} />
+              </motion.div>
+            </div>
+
+            {/* Slot for 3rd */}
+            <div className="flex justify-start">
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="w-full max-w-[280px]">
+                <PrizeChest data={prizesData[2]} />
+              </motion.div>
+            </div>
           </div>
 
-          {/* Row 2: Special, Participants */}
-          <div className="flex flex-row justify-center gap-[140px] -mt-[60px] w-full z-20 relative">
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.45 }}>
-              <PrizeChest data={prizesData[3]} /> {/* Special */}
-            </motion.div>
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.6 }}>
-              <PrizeChest data={prizesData[4]} /> {/* Participants */}
-            </motion.div>
+          {/* Row 2: Special, Participants - Tightened spacing */}
+          <div className="flex flex-row justify-center gap-24 -mt-[40px] w-full z-20 relative">
+            <div className="w-[220px] flex justify-center">
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.45 }}>
+                <PrizeChest data={prizesData[3]} />
+              </motion.div>
+            </div>
+            <div className="w-[220px] flex justify-center">
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.6 }}>
+                <PrizeChest data={prizesData[4]} />
+              </motion.div>
+            </div>
           </div>
         </div>
 
         {/* Mobile Layout: Single column */}
-        <div className="flex flex-col md:hidden items-center gap-[24px]">
+        <div className="flex flex-col md:hidden items-center gap-[40px]">
           {prizesData.map((prize, index) => (
             <motion.div
               key={prize.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.15 }}
+              transition={{ delay: index * 0.1 }}
+              className="w-full max-w-[280px]"
             >
               <PrizeChest data={prize} />
             </motion.div>

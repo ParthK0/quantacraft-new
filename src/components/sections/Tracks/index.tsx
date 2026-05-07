@@ -67,7 +67,7 @@ export default function Tracks() {
         <SectionHeader
           title="HACKATHON TRACKS"
           subtext="Select Your Path"
-          className="mb-12"
+          className="mb-28 md:mb-40"
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 justify-items-center">
