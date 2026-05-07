@@ -43,13 +43,13 @@ export default function FAQ() {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover -z-10"
+        className="absolute inset-0 w-full h-full object-cover -z-10 brightness-110"
       >
         <source src="/assets/FAQs/FAQs.mp4" type="video/mp4" />
       </video>
 
-      {/* 🌑 Overlay for readability */}
-      <div className="absolute inset-0 bg-black/60 -z-10" />
+      {/* 🌑 Overlay for readability (Reduced opacity for more brightness) */}
+      <div className="absolute inset-0 bg-black/30 -z-10" />
 
       <div className="max-w-3xl mx-auto px-4 relative z-10">
         <SectionHeader 
