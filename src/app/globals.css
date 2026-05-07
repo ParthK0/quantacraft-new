@@ -44,6 +44,10 @@ body {
   .font-cursive {
     font-family: var(--font-satisfy), cursive;
   }
+
+  .font-exo {
+    font-family: var(--font-exo), sans-serif;
+  }
 }
 
 /* Minecraft Orientation Typography */
@@ -727,35 +731,38 @@ h2::after {
 
 .footer-heading {
   font-family: var(--font-press-start), cursive;
-  font-size: 14px;
-  color: #ffffff;
-  text-shadow:
-    2px 2px 0 #A000FF,
-    0 0 15px rgba(160, 0, 255, 0.6);
+  font-size: 13px;
+  color: #67e8f9;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
   text-transform: uppercase;
-  margin-bottom: 20px;
-  letter-spacing: 1px;
+  margin-bottom: 24px;
+  letter-spacing: 1.5px;
 }
 
 .footer-link {
-  font-family: var(--font-press-start), cursive;
-  font-size: 10px;
-  color: #e2e8f0;
-  transition: all 0.2s;
-  display: block;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-family: var(--font-exo), sans-serif;
+  font-size: 14px;
+  color: #cccccc;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
 }
 
 .footer-link:hover {
   color: #67e8f9;
-  padding-left: 8px;
+  transform: translateX(8px);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .footer-label {
-  color: #67e8f9;
-  font-weight: bold;
-  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+  font-family: var(--font-exo), sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* ── Grass Block Character Base ── */

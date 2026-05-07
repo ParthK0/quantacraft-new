@@ -31,6 +31,9 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* 📏 Divider line */}
+      <div className="w-full h-[1px] bg-white/10 relative z-20" />
+
       {/* Main Footer Container */}
       <div className="jungle-footer-bg pt-12 pb-0 relative">
         <div className="mossy-overlay" />
@@ -44,46 +47,29 @@ export default function Footer() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 mb-8"
           >
             {/* [Col 1 - Brand] */}
-            <div className="flex flex-col pr-8 mb-8 lg:mb-0">
+            <div className="flex flex-col pr-8 mb-8 lg:mb-0 bg-black/30 p-6 backdrop-blur-[2px]">
               <img
                 src="/assets/footer/footer logo.png"
                 alt="QuantCraft Logo"
                 className="h-16 w-auto mb-6 object-contain self-start filter drop-shadow-[0_0_12px_rgba(0,255,255,0.6)]"
               />
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <div>
-                  <h3 className="footer-heading !mb-3">NEXIDO</h3>
+                  <h3 className="footer-heading !mb-3">FOLLOW US</h3>
                   <div className="flex flex-wrap gap-3">
                     {[
-                      { Icon: SiX, href: "#" },
-                      { Icon: FaLinkedin, href: "#" },
-                      { Icon: SiInstagram, href: "#" }
-                    ].map(({ Icon, href }, idx) => (
+                      { Icon: SiX, href: "#", label: "NEXIDO" },
+                      { Icon: FaLinkedin, href: "#", label: "NEXIDO" },
+                      { Icon: SiInstagram, href: "#", label: "NEXIDO" },
+                      { Icon: SiInstagram, href: "#", label: "BUILDER BASE" }
+                    ].map(({ Icon, href, label }, idx) => (
                       <a 
                         key={idx}
                         href={href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-[36px] h-[36px] flex items-center justify-center border-2 border-[#22c55e] rounded-none bg-[rgba(34,197,94,0.1)] text-[#4ade80] transition-all duration-200 hover:bg-[#22c55e] hover:text-[#0f1a0f] hover:shadow-[0_0_15px_#22c55e] hover:-translate-y-[3px]"
-                      >
-                        <Icon className="w-4 h-4" />
-                      </a>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="footer-heading !mb-3">BUILDER BASE</h3>
-                  <div className="flex flex-wrap gap-3">
-                    {[
-                      { Icon: SiInstagram, href: "#" }
-                    ].map(({ Icon, href }, idx) => (
-                      <a 
-                        key={idx}
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-[36px] h-[36px] flex items-center justify-center border-2 border-[#22c55e] rounded-none bg-[rgba(34,197,94,0.1)] text-[#4ade80] transition-all duration-200 hover:bg-[#22c55e] hover:text-[#0f1a0f] hover:shadow-[0_0_15px_#22c55e] hover:-translate-y-[3px]"
+                        className="w-[36px] h-[36px] flex items-center justify-center border-2 border-[#67e8f9] rounded-none bg-[rgba(103,232,249,0.1)] text-[#67e8f9] transition-all duration-200 hover:bg-[#67e8f9] hover:text-[#0f1a0f] hover:shadow-[0_0_15px_#67e8f9] hover:-translate-y-[3px]"
+                        title={label}
                       >
                         <Icon className="w-4 h-4" />
                       </a>
@@ -94,7 +80,7 @@ export default function Footer() {
             </div>
 
             {/* [Col 2 - Quick Links] */}
-            <div className="lg:border-l-2 lg:border-dashed lg:border-[#A000FF]/30 pl-12 mb-8 lg:mb-0">
+            <div className="lg:border-l lg:border-white/10 pl-12 mb-8 lg:mb-0 bg-black/25 p-6 backdrop-blur-[2px]">
               <h3 className="footer-heading">Quick Links</h3>
               <ul className="space-y-4">
                 {['Home', 'About', 'Tracks', 'Prizes', 'FAQs'].map((link) => (
@@ -108,20 +94,22 @@ export default function Footer() {
             </div>
 
             {/* [Col 3 - Contact Us] */}
-            <div className="lg:border-l-2 lg:border-dashed lg:border-[#A000FF]/30 pl-12 mb-8 lg:mb-0">
+            <div className="lg:border-l lg:border-white/10 pl-12 mb-8 lg:mb-0 bg-black/20 p-6 backdrop-blur-[2px]">
               <h3 className="footer-heading">Contact Us</h3>
-              <div className="space-y-5">
+              <div className="space-y-6">
                 <div className="flex flex-col">
-                  <span className="footer-label font-pixel text-[10px] mb-1 uppercase tracking-wider">Email:</span>
-                  <a href="mailto:eren.techfest@gmail.com" className="font-pixel text-[11px] text-[#e2e8f0] hover:text-[#67e8f9] transition-colors">eren.techfest@gmail.com</a>
+                  <span className="footer-label mb-1">Email</span>
+                  <a href="mailto:eren.techfest@gmail.com" className="font-exo text-[14px] text-[#cccccc] hover:text-[#67e8f9] transition-colors tracking-wide">
+                    eren.techfest@gmail.com
+                  </a>
                 </div>
                 <div className="flex flex-col">
-                  <span className="footer-label font-pixel text-[10px] mb-1 uppercase tracking-wider">Phone:</span>
-                  <span className="font-pixel text-[11px] text-[#e2e8f0] tracking-widest">+91 9306576649</span>
+                  <span className="footer-label mb-1">Phone</span>
+                  <span className="font-exo text-[14px] text-[#cccccc] tracking-widest">+91 9306576649</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="footer-label font-pixel text-[10px] mb-1 uppercase tracking-wider">Address:</span>
-                  <span className="font-pixel text-[11px] text-[#e2e8f0] leading-relaxed">
+                  <span className="footer-label mb-1">Address</span>
+                  <span className="font-exo text-[14px] text-[#cccccc] leading-relaxed">
                     GALGOTIAS UNIVERSITY, PLOT NO. 2, YAMUNA EXPY, GREATER NOIDA, UP 203201
                   </span>
                 </div>
@@ -129,11 +117,11 @@ export default function Footer() {
             </div>
 
             {/* [Col 4 - Map] */}
-            <div className="lg:border-l-2 lg:border-dashed lg:border-[#A000FF]/30 pl-12">
+            <div className="lg:border-l lg:border-white/10 pl-12 bg-black/15 p-6 backdrop-blur-[2px]">
               <h3 className="footer-heading flex items-center gap-2">
                 <span className="text-xl">📍</span> FIND US
               </h3>
-              <div className="bg-[#0a0a0a] border-[3px] border-[#A000FF] shadow-[0_0_15px_#A000FF,inset_0_0_10px_rgba(160,0,255,0.1)] rounded-none p-1 overflow-hidden h-[200px] relative group">
+              <div className="bg-[#0a0a0a] border-[3px] border-[#67e8f9] shadow-[0_0_15px_#67e8f9,inset_0_0_10px_rgba(103,232,249,0.1)] rounded-none p-1 overflow-hidden h-[200px] relative group">
                 <iframe
                   className="w-full h-full border-0 transition-all duration-500"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.387114631383!2d77.53484217625126!3d28.377317675806653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc66264903333%3A0xc3c5d6c8b093f412!2sGalgotias%20University!5e0!3m2!1sen!2sin!4v1714742400000!5m2!1sen!2sin"
