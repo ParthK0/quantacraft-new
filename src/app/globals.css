@@ -756,6 +756,22 @@ h2::after {
   text-underline-offset: 4px;
 }
 
+.footer-link-pixel {
+  font-family: var(--font-press-start), cursive;
+  font-size: 11px;
+  color: #cccccc;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-link-pixel:hover {
+  color: #67e8f9;
+  transform: translateX(8px);
+  text-shadow: 0 0 8px rgba(103, 232, 249, 0.4);
+}
+
 .footer-label {
   font-family: var(--font-exo), sans-serif;
   font-weight: 700;

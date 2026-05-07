@@ -47,7 +47,7 @@ export default function Footer() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 mb-8"
           >
             {/* [Col 1 - Brand] */}
-            <div className="flex flex-col pr-8 mb-8 lg:mb-0 bg-black/30 p-6 backdrop-blur-[2px]">
+            <div className="flex flex-col pr-8 mb-8 lg:mb-0 bg-black/30 p-4 backdrop-blur-[2px]">
               <img
                 src="/assets/footer/footer logo.png"
                 alt="QuantCraft Logo"
@@ -80,12 +80,12 @@ export default function Footer() {
             </div>
 
             {/* [Col 2 - Quick Links] */}
-            <div className="lg:border-l lg:border-white/10 pl-12 mb-8 lg:mb-0 bg-black/25 p-6 backdrop-blur-[2px]">
+            <div className="lg:border-l lg:border-white/10 pl-12 mb-8 lg:mb-0 bg-black/25 p-4 backdrop-blur-[2px]">
               <h3 className="footer-heading">Quick Links</h3>
-              <ul className="space-y-4">
+              <ul className="space-y-3">
                 {['Home', 'About', 'Tracks', 'Prizes', 'FAQs'].map((link) => (
                   <li key={link}>
-                    <a href={`#${link.toLowerCase()}`} className="footer-link">
+                    <a href={`#${link.toLowerCase()}`} className="footer-link-pixel">
                       {link}
                     </a>
                   </li>
@@ -94,7 +94,7 @@ export default function Footer() {
             </div>
 
             {/* [Col 3 - Contact Us] */}
-            <div className="lg:border-l lg:border-white/10 pl-12 mb-8 lg:mb-0 bg-black/20 p-6 backdrop-blur-[2px]">
+            <div className="lg:border-l lg:border-white/10 pl-12 mb-8 lg:mb-0 bg-black/20 p-4 backdrop-blur-[2px]">
               <h3 className="footer-heading">Contact Us</h3>
               <div className="space-y-6">
                 <div className="flex flex-col">
@@ -117,7 +117,7 @@ export default function Footer() {
             </div>
 
             {/* [Col 4 - Map] */}
-            <div className="lg:border-l lg:border-white/10 pl-12 bg-black/15 p-6 backdrop-blur-[2px]">
+            <div className="lg:border-l lg:border-white/10 pl-12 bg-black/15 p-4 backdrop-blur-[2px]">
               <h3 className="footer-heading flex items-center gap-2">
                 <span className="text-xl">📍</span> FIND US
               </h3>
