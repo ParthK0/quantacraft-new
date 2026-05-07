@@ -94,7 +94,7 @@ export default function Prizes() {
 
       <div className="max-w-[1200px] mx-auto relative z-10 w-full">
         <SectionHeader
-          title="TOTAL POOL: ₹35,000"
+          title="PRIZE POOL"
           subtext="Loot Table Revealed"
           className="mb-12"
         />
