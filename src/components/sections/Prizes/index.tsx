@@ -102,24 +102,6 @@ export default function Prizes() {
       <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, #2d1b6933 0%, transparent 80%)" }} />
 
       <div className="max-w-[1400px] mx-auto relative z-8 w-full mt-[0px]">
-        {/* Section Corner Assets */}
-        <motion.div 
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="absolute -top-12 -left-4 md:-left-12 z-20 w-24 md:w-48 pointer-events-none opacity-60"
-        >
-          <img src="/assets/hero/date.png" alt="" className="w-full h-auto" />
-        </motion.div>
-
-        <motion.div 
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="absolute -top-12 -right-4 md:-right-12 z-20 w-24 md:w-48 pointer-events-none opacity-60"
-        >
-          <img src="/assets/hero/register1.png" alt="" className="w-full h-auto" />
-        </motion.div>
 
         <SectionHeader
           title="PRIZE POOL"

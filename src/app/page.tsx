@@ -77,26 +77,26 @@ export default function Home() {
 
       <main className="relative">
         {/* Sections */}
-      <Hero />
-      <ScrollingMarquee />
-      <About />
-      <SectionDivider />
-      <Tracks />
-      <SectionDivider />
-      <Timeline />
-      <SectionDivider />
-      <Prizes />
-      <SectionDivider />
-      <Sponsors />
-      <SectionDivider />
-      <Team />
-      <SectionDivider />
-      <FAQ />
-      <Footer />
-    </main>
+        <Hero />
+        <ScrollingMarquee />
+        <About />
+        <SectionDivider />
+        <Tracks />
+        <SectionDivider />
+        <Timeline />
+        <SectionDivider />
+        <Prizes />
+        <SectionDivider />
+        <Sponsors />
+        <SectionDivider />
+        <Team />
+        <SectionDivider />
+        <FAQ />
+        <Footer />
+      </main>
 
-    {/* Persistent Avatar Assistant */}
-    <AvatarAssistant />
+      {/* Persistent Avatar Assistant */}
+      <AvatarAssistant />
     </>
   );
 }

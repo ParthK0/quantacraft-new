@@ -27,6 +27,14 @@
   --track-bg: #000d07;
 }
 
+.track-open {
+  --track-primary: #06b6d4;
+  --track-secondary: #083344;
+  --track-glow: #22d3ee;
+  --track-bg: #000d0d;
+}
+
+
 /* Card Base Structure */
 .cardContainer {
   width: 280px;

@@ -45,6 +45,16 @@ const tracks = [
     idleImg: "/assets/tracks/GameDevelopment1-removebg-preview.png",
     battleImg: "/assets/tracks/GameDevelopment2-removebg-preview.png",
   },
+  {
+    slug: "open",
+    trackName: "OPEN INNOVATION",
+    accentColor: "#06b6d4",
+    glowColor: "#22d3ee",
+    platformImg: "/assets/tracks/sposnor platfomr.png",
+    titleImg: "/assets/tracks/sponsor.png",
+    idleImg: "/assets/tracks/sponsor1.png",
+    battleImg: "/assets/tracks/sponsor2.png",
+  },
 ];
 
 export default function Tracks() {
@@ -64,24 +74,6 @@ export default function Tracks() {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Corner Assets */}
-        <motion.div 
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="absolute -top-12 -left-4 md:-left-12 z-20 w-24 md:w-48 pointer-events-none opacity-60"
-        >
-          <img src="/assets/hero/date.png" alt="" className="w-full h-auto" />
-        </motion.div>
-
-        <motion.div 
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="absolute -top-12 -right-4 md:-right-12 z-20 w-24 md:w-48 pointer-events-none opacity-60"
-        >
-          <img src="/assets/hero/register1.png" alt="" className="w-full h-auto" />
-        </motion.div>
 
         <SectionHeader
           title="HACKATHON TRACKS"
@@ -90,7 +82,7 @@ export default function Tracks() {
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 justify-items-center">
-          {tracks.map((track, i) => (
+          {tracks.slice(0, 4).map((track, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
@@ -102,6 +94,22 @@ export default function Tracks() {
             </motion.div>
           ))}
         </div>
+
+        {tracks.length > 4 && (
+          <div className="flex justify-center mt-12 md:mt-16">
+            {tracks.slice(4).map((track, i) => (
+              <motion.div
+                key={i + 4}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: (i + 4) * 0.15, duration: 0.6 }}
+              >
+                <MinecraftTrackCard {...track} />
+              </motion.div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

@@ -52,24 +52,7 @@ export default function Timeline() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(160,0,255,0.1),transparent_70%)]" />
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-        {/* Section Corner Assets */}
-        <motion.div 
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="absolute -top-12 -left-4 md:-left-12 z-20 w-24 md:w-48 pointer-events-none opacity-60"
-        >
-          <img src="/assets/hero/date.png" alt="" className="w-full h-auto" />
-        </motion.div>
 
-        <motion.div 
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="absolute -top-12 -right-4 md:-right-12 z-20 w-24 md:w-48 pointer-events-none opacity-60"
-        >
-          <img src="/assets/hero/register1.png" alt="" className="w-full h-auto" />
-        </motion.div>
 
         <SectionHeader 
           title="EVENT TIMELINE" 

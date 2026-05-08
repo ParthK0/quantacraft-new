@@ -108,8 +108,8 @@ function FAQItem({
         className={`relative overflow-hidden transition-all duration-300 ease-in-out z-20 ${isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}
       >
         <div className="p-5 pt-0">
-          <div className="p-4">
-            <p className="font-minecraft text-[10px] text-zinc-100 leading-relaxed tracking-wider drop-shadow-[1px_1px_0_rgba(0,0,0,0.8)]">
+          <div className="p-4 bg-black/50 border-l-[4px] border-[#A000FF] backdrop-blur-[2px]">
+            <p className="font-minecraft text-[11px] text-white leading-relaxed tracking-wider drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">
               {faq.a}
             </p>
           </div>

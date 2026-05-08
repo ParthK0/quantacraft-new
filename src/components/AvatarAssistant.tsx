@@ -30,18 +30,24 @@ export default function AvatarAssistant() {
       { threshold: [0.1, 0.5, 0.8] }
     );
 
-    const sections = document.querySelectorAll("section[id]");
+    const sections = document.querySelectorAll("section[id], footer[id]");
     sections.forEach((section) => observer.observe(section));
 
     return () => sections.forEach((section) => observer.unobserve(section));
   }, []);
 
+  const isHiddenSection = currentSection === "footer" || currentSection === "faq";
+  const currentQuote = quotes[currentSection];
+
   return (
-    <div className="fixed bottom-12 left-[-4rem] z-[9999] pointer-events-none flex items-center gap-0">
+    <div className={`fixed bottom-0 left-[-6rem] z-[9999] pointer-events-none flex items-center gap-0 ${isHiddenSection ? "pointer-events-none" : ""}`}>
       {/* The Avatar Image - Kept at w-72, moved more left */}
       <motion.div
         initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
+        animate={{ 
+          x: isHiddenSection ? -300 : 0, 
+          opacity: isHiddenSection ? 0 : 1 
+        }}
         transition={{ type: "spring", damping: 20 }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -54,10 +60,10 @@ export default function AvatarAssistant() {
         />
       </motion.div>
 
-      {/* The Quote Bubble - Only visible on hover */}
+      {/* The Quote Bubble - Only visible on hover and if there is a quote */}
       <div className="flex items-center -ml-20"> 
         <AnimatePresence mode="wait">
-          {isHovered && (
+          {isHovered && currentQuote && (
             <motion.div
               key={currentSection}
               initial={{ opacity: 0, scale: 0.8, x: -10 }}
@@ -71,7 +77,7 @@ export default function AvatarAssistant() {
               {/* Main Bubble Box */}
               <div className="bg-[#A000FF] border-[4px] border-white px-6 py-4 shadow-[6px_6px_0px_rgba(0,0,0,0.6)] min-w-[280px] max-w-[400px]">
                 <p className="text-white font-minecraft text-[11px] leading-[1.8] uppercase tracking-[2px]">
-                  {quotes[currentSection] || "Build. Solve. Conquer."}
+                  {currentQuote}
                 </p>
               </div>
             </motion.div>

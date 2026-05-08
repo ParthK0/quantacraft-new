@@ -53,10 +53,10 @@ export default function PrizeChest({ data }: { data: PrizeData }) {
               repeat: isOpen ? 0 : Infinity,
               ease: isOpen ? "easeOut" : "easeInOut",
             },
-            scale: { 
-              duration: isOpen ? 0.4 : 4, 
+            scale: {
+              duration: isOpen ? 0.4 : 4,
               repeat: isOpen ? 0 : Infinity,
-              ease: "easeInOut" 
+              ease: "easeInOut"
             },
           }}
           style={{
@@ -109,14 +109,14 @@ export default function PrizeChest({ data }: { data: PrizeData }) {
       {/* Content */}
       <div className={`${data.labelOffset || "mt-[-128px]"} flex flex-col items-center drop-shadow-md text-center w-full relative z-[3]`}>
         {data.labelImg ? (
-          <img 
-            src={data.labelImg} 
-            alt={data.label} 
-            className={`${data.labelImgHeight || "h-[168px] md:h-[192px] lg:h-[202px]"} object-contain mb-2`} 
+          <img
+            src={data.labelImg}
+            alt={data.label}
+            className={`${data.labelImgHeight || "h-[168px] md:h-[192px] lg:h-[202px]"} object-contain mb-2`}
           />
         ) : (
-          <h3 
-            className={`font-minecraft uppercase tracking-wider leading-none mb-1.5 ${data.labelClass}`} 
+          <h3
+            className={`font-minecraft uppercase tracking-wider leading-none mb-1.5 ${data.labelClass}`}
             style={{ color: data.glowColor, textShadow: `0 0 12px ${data.glowColor}aa` }}
           >
             {data.label}
