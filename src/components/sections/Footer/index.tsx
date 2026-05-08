@@ -6,7 +6,7 @@ import { FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="relative w-full overflow-hidden">
+    <footer id="footer" className="relative w-full overflow-hidden">
       {/* 👾 Top Grass Block Strip */}
       <div className="h-[20px] w-full relative z-30 flex flex-col shadow-[0_0_20px_#22c55e]">
         <div className="h-[12px] w-full bg-[#4ade80] border-b-2 border-[#15803d]" />

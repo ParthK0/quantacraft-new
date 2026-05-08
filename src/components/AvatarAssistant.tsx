@@ -11,6 +11,7 @@ const quotes: Record<string, string> = {
   prizes: "₹35,000 up for grabs! Plus goodies for everyone.",
   team: "The dream team behind the scenes. Meet the Quanta crew!",
   faq: "Got questions? We've got answers.",
+  footer: "",
 };
 
 export default function AvatarAssistant() {
