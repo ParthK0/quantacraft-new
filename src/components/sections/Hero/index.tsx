@@ -42,7 +42,7 @@ export default function Hero() {
         }}
         className="absolute top-4 right-4 md:top-8 md:right-8 z-20 w-24 sm:w-32 md:w-64 pointer-events-auto cursor-pointer"
       >
-        <img src="/assets/hero/register.png" alt="Register" className="w-full h-auto drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
+        <img src="/assets/hero/register1.png" alt="Register" className="w-full h-auto drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
       </motion.a>
 
       {/* Main Logo in Centre - Floating Effect */}
