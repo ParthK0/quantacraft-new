@@ -291,8 +291,28 @@ export default function Team() {
       {/* Overlay for readability - much lighter and cleaner */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 z-[1] pointer-events-none" />
 
-      {/* Heading */}
-      <SectionHeader 
+      <div className="max-w-7xl mx-auto relative z-10 px-6">
+        {/* Section Corner Assets */}
+        <motion.div 
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="absolute -top-4 -left-4 md:-left-8 z-20 w-24 md:w-48 pointer-events-none opacity-60"
+        >
+          <img src="/assets/hero/date.png" alt="" className="w-full h-auto" />
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="absolute -top-4 -right-4 md:-right-8 z-20 w-24 md:w-48 pointer-events-none opacity-60"
+        >
+          <img src="/assets/hero/register1.png" alt="" className="w-full h-auto" />
+        </motion.div>
+
+        {/* Heading */}
+        <SectionHeader 
         title="THE QUANTA CREW" 
         subtext="Meet the Innovators" 
         className="pt-10"

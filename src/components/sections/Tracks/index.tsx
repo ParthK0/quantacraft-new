@@ -26,16 +26,6 @@ const tracks = [
     battleImg: "/assets/tracks/AIML2-removebg-preview.png",
   },
   {
-    slug: "sponsor",
-    trackName: "SPONSOR TRACKS",
-    accentColor: "#ec4899",
-    glowColor: "#f472b6",
-    platformImg: "/assets/tracks/sposnor platfomr.png",
-    titleImg: "/assets/tracks/sponsor.png",
-    idleImg: "/assets/tracks/sponsor1.png",
-    battleImg: "/assets/tracks/sponsor2.png",
-  },
-  {
     slug: "cyber",
     trackName: "CYBER SECURITY",
     accentColor: "#ef4444",
@@ -74,13 +64,32 @@ export default function Tracks() {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
+        {/* Section Corner Assets */}
+        <motion.div 
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="absolute -top-12 -left-4 md:-left-12 z-20 w-24 md:w-48 pointer-events-none opacity-60"
+        >
+          <img src="/assets/hero/date.png" alt="" className="w-full h-auto" />
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="absolute -top-12 -right-4 md:-right-12 z-20 w-24 md:w-48 pointer-events-none opacity-60"
+        >
+          <img src="/assets/hero/register1.png" alt="" className="w-full h-auto" />
+        </motion.div>
+
         <SectionHeader
           title="HACKATHON TRACKS"
           subtext="Select Your Path"
           className="mb-28 md:mb-40"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 md:gap-8 justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 justify-items-center">
           {tracks.map((track, i) => (
             <motion.div
               key={i}
