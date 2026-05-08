@@ -21,8 +21,9 @@ export default function Hero() {
       <motion.div 
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
+        whileHover={{ scale: 1.05 }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="absolute top-4 left-4 md:top-8 md:left-8 z-20 w-24 sm:w-32 md:w-64 pointer-events-none"
+        className="absolute top-4 left-4 md:top-8 md:left-8 z-20 w-24 sm:w-32 md:w-64 pointer-events-none select-none"
       >
         <img src="/assets/hero/date.png" alt="Date" className="w-full h-auto drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
       </motion.div>
