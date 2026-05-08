@@ -205,15 +205,15 @@ export default function Team() {
   const paused = useRef(false);   // true while hovered or mid-arrow-click
   const nudging = useRef(false);   // true while smooth-scrolling an arrow
 
-  const [dim, setDim] = useState({ cardW: 260, gap: 24 });
+  const [dim, setDim] = useState({ cardW: 260, gap: 24, cardH: 540 });
   const step = dim.cardW + dim.gap;
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
-        setDim({ cardW: 110, gap: 8 });
+        setDim({ cardW: 110, gap: 8, cardH: 200 });
       } else {
-        setDim({ cardW: 260, gap: 24 });
+        setDim({ cardW: 260, gap: 24, cardH: 540 });
       }
     };
     handleResize();
@@ -355,7 +355,7 @@ export default function Team() {
             <div
               key={i}
               className="group relative shrink-0"
-              style={{ width: dim.cardW, aspectRatio: "3/4", height: window.innerWidth < 768 ? 200 : 540 }}
+              style={{ width: dim.cardW, aspectRatio: "3/4", height: dim.cardH }}
             >
               <MinecraftProfileCard
                 name={member.name}
