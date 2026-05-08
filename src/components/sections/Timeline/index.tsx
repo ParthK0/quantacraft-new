@@ -66,7 +66,8 @@ export default function Timeline() {
       <SectionHeader 
         title="EVENT TIMELINE" 
         subtext="Tick Tock Hack!!"
-        className="pt-20 mb-24"
+        className="pt-6 mb-24"
+        titleClassName="[word-spacing:-0.6em]"
       />
 
       <div className="max-w-6xl mx-auto relative z-10">

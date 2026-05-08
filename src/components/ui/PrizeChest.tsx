@@ -17,6 +17,9 @@ interface PrizeData {
   idleOpacity: number[];
   glowRadius: string;
   labelImg?: string;
+  openScale?: number;
+  labelImgHeight?: string;
+  labelOffset?: string;
 }
 
 export default function PrizeChest({ data }: { data: PrizeData }) {
@@ -90,9 +93,9 @@ export default function PrizeChest({ data }: { data: PrizeData }) {
                 src={data.openSrc}
                 alt="Open Chest"
                 className="w-full h-full object-contain drop-shadow-2xl"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: (data.openScale || 1) * 0.95 }}
+                animate={{ opacity: 1, scale: data.openScale || 1 }}
+                exit={{ opacity: 0, scale: (data.openScale || 1) * 0.95 }}
                 transition={{
                   opacity: { duration: 0.3, ease: "easeOut" },
                   scale: { duration: 0.3, ease: "easeOut" },
@@ -104,12 +107,12 @@ export default function PrizeChest({ data }: { data: PrizeData }) {
       </div>
 
       {/* Content */}
-      <div className="mt-[12px] flex flex-col items-center drop-shadow-md text-center w-full relative z-[3]">
+      <div className={`${data.labelOffset || "mt-[-128px]"} flex flex-col items-center drop-shadow-md text-center w-full relative z-[3]`}>
         {data.labelImg ? (
           <img 
             src={data.labelImg} 
             alt={data.label} 
-            className="h-[20px] md:h-[40px] lg:h-[48px] object-contain mb-2" 
+            className={`${data.labelImgHeight || "h-[168px] md:h-[192px] lg:h-[202px]"} object-contain mb-2`} 
           />
         ) : (
           <h3 
