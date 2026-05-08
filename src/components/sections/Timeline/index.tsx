@@ -59,8 +59,8 @@ export default function Timeline() {
       />
 
       <div className="max-w-6xl mx-auto relative z-10">
-        {/* Central Vertical Line */}
-        <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0 border-r-[4px] border-dashed border-[#A000FF] -translate-x-1/2 opacity-50" />
+        {/* Central Vertical Line (Minecraft Tree Trunk) */}
+        <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-3 bg-[#4b3621] -translate-x-1/2 opacity-80 shadow-[inset_-2px_0_4px_rgba(0,0,0,0.5),2px_0_4px_rgba(0,0,0,0.3)]" />
 
         <div className="space-y-16 md:space-y-0">
           {events.map((event, i) => (
@@ -77,7 +77,7 @@ export default function Timeline() {
               <div className="flex-1 w-full pl-12 md:pl-0 z-10">
                 <motion.div 
                   whileHover={{ scale: 1.05 }}
-                  className="relative cursor-pointer transition-all duration-300 drop-shadow-[0_0_15px_rgba(160,0,255,0.2)] hover:drop-shadow-[0_0_25px_rgba(160,0,255,0.4)]"
+                  className="relative cursor-pointer transition-all duration-300 drop-shadow-[0_0_15px_rgba(160,0,255,0.1)] hover:drop-shadow-[0_0_25px_rgba(160,0,255,0.3)]"
                 >
                   <img 
                     src={event.imageSrc} 
@@ -87,8 +87,8 @@ export default function Timeline() {
                 </motion.div>
               </div>
 
-              {/* Center Connection Point */}
-              <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-[#A000FF] rotate-45 shadow-[0_0_15px_#A000FF] z-20" />
+              {/* Center Connection Point (Minecraft Block) */}
+              <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-5 h-5 bg-[#5d4037] border-2 border-[#3e2723] shadow-[2px_2px_0_rgba(0,0,0,0.4)] z-20" />
               
               <div className="flex-1 hidden md:block" />
             </motion.div>
