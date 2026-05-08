@@ -40,7 +40,7 @@ export default function AvatarAssistant() {
   const currentQuote = quotes[currentSection];
 
   return (
-    <div className={`fixed bottom-0 left-[-6rem] z-[9999] pointer-events-none flex items-center gap-0 ${isHiddenSection ? "pointer-events-none" : ""}`}>
+    <div className={`fixed bottom-0 left-[-6rem] z-[9999] pointer-events-none hidden md:flex items-center gap-0 ${isHiddenSection ? "pointer-events-none" : ""}`}>
       {/* The Avatar Image - Kept at w-72, moved more left */}
       <motion.div
         initial={{ x: -100, opacity: 0 }}

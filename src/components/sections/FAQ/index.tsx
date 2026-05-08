@@ -96,7 +96,7 @@ function FAQItem({
         onClick={onToggle}
         className="relative w-full p-5 flex items-center justify-between text-left z-10"
       >
-        <span className="font-minecraft text-[11px] text-white tracking-[1px] drop-shadow-[2px_2px_0_#A000FF] uppercase">
+        <span className="font-minecraft text-[9px] md:text-[11px] text-white tracking-[1px] drop-shadow-[2px_2px_0_#A000FF] uppercase">
           {faq.q}
         </span>
         <div className={`transition-transform duration-300 ${isOpen ? "rotate-45 scale-110" : ""}`}>
@@ -109,7 +109,7 @@ function FAQItem({
       >
         <div className="p-5 pt-0">
           <div className="p-4 bg-black/50 border-l-[4px] border-[#A000FF] backdrop-blur-[2px]">
-            <p className="font-minecraft text-[11px] text-white leading-relaxed tracking-wider drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">
+            <p className="font-minecraft text-[9px] md:text-[11px] text-white leading-relaxed tracking-wider drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">
               {faq.a}
             </p>
           </div>

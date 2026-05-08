@@ -107,12 +107,12 @@ export default function PrizeChest({ data }: { data: PrizeData }) {
       </div>
 
       {/* Content */}
-      <div className={`${data.labelOffset || "mt-[-128px]"} flex flex-col items-center drop-shadow-md text-center w-full relative z-[3]`}>
+      <div className={`${data.labelOffset || "mt-[-80px] md:mt-[-128px]"} flex flex-col items-center drop-shadow-md text-center w-full relative z-[3]`}>
         {data.labelImg ? (
           <img
             src={data.labelImg}
             alt={data.label}
-            className={`${data.labelImgHeight || "h-[168px] md:h-[192px] lg:h-[202px]"} object-contain mb-2`}
+            className={`${data.labelImgHeight || "h-[100px] md:h-[192px] lg:h-[202px]"} object-contain mb-2`}
           />
         ) : (
           <h3

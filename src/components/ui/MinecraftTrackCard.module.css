@@ -337,12 +337,42 @@
 
 @media (max-width: 768px) {
   .cardContainer {
-    height: 320px;
+    width: 165px;
+    height: 250px;
+    border-width: 2px;
+  }
+
+  .trackImageWrap {
+    height: 180px;
+    padding: 8px 8px 0 8px;
   }
 
   .cornerBracket {
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 14px;
+    border-width: 2px;
+  }
+
+  .spark {
+    width: 5px;
+    height: 5px;
+  }
+
+  .trackSeparator {
+    margin: 8px auto 4px auto;
+  }
+
+  .trackLabelWrap {
+    height: 40px;
+    margin-bottom: 8px;
+  }
+
+  .titleImg {
+    transform: scale(1.1);
+  }
+
+  .cardContainer:hover .titleImg {
+    transform: scale(1.25);
   }
 
   .trackLabel {

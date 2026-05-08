@@ -114,51 +114,54 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* [Col 3 - Contact Us] */}
-            <div className="lg:border-l lg:border-white/10 pl-4 lg:pl-12 mb-8 lg:mb-0 bg-black/20 p-4 backdrop-blur-[2px]">
-              <h3 className="footer-heading">Contact Us</h3>
-              <div className="space-y-6">
-                <div className="flex flex-col">
-                  <span className="footer-label mb-1">Email</span>
-                  <a href="mailto:eren.techfest@gmail.com" className="font-exo text-[14px] text-[#cccccc] hover:text-[#67e8f9] transition-colors tracking-wide">
-                    eren.techfest@gmail.com
-                  </a>
-                </div>
-                <div className="flex flex-col">
-                  <span className="footer-label mb-1">Phone</span>
-                  <span className="font-exo text-[14px] text-[#cccccc] tracking-widest">+91 9306576649</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="footer-label mb-1">Address</span>
-                  <span className="font-exo text-[14px] text-[#cccccc] leading-relaxed">
-                    GALGOTIAS UNIVERSITY, PLOT NO. 2, YAMUNA EXPY, GREATER NOIDA, UP 203201
-                  </span>
+            {/* [Col 3 & 4 - Contact & Map Combined on Mobile] */}
+            <div className="lg:border-l lg:border-white/10 pl-4 lg:pl-12 bg-black/20 p-4 backdrop-blur-[2px] lg:col-span-2 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+              {/* Contact Us Part */}
+              <div>
+                <h3 className="footer-heading">Contact Us</h3>
+                <div className="space-y-4">
+                  <div className="flex flex-col">
+                    <span className="footer-label mb-1">Email</span>
+                    <a href="mailto:eren.techfest@gmail.com" className="font-exo text-[13px] text-[#cccccc] hover:text-[#67e8f9] transition-colors tracking-wide">
+                      eren.techfest@gmail.com
+                    </a>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="footer-label mb-1">Phone</span>
+                    <span className="font-exo text-[13px] text-[#cccccc] tracking-widest">+91 9306576649</span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="footer-label mb-1">Address</span>
+                    <span className="font-exo text-[12px] text-[#cccccc] leading-relaxed">
+                      GALGOTIAS UNIVERSITY, PLOT NO. 2, YAMUNA EXPY, GREATER NOIDA, UP 203201
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* [Col 4 - Map] */}
-            <div className="lg:border-l lg:border-white/10 pl-4 lg:pl-12 bg-black/15 p-4 backdrop-blur-[2px]">
-              <h3 className="footer-heading flex items-center gap-2">
-                <span className="text-xl">📍</span> FIND US
-              </h3>
-              <a 
-                href="http://google.com/maps/place/Galgotias+University/@28.3668904,77.5387649,730m/data=!3m2!1e3!4b1!4m6!3m5!1s0x390cc7365a740e65:0xd0d60a62e55ab171!8m2!3d28.3668904!4d77.5413398!16s%2Fm%2F0gff9fz?entry=ttu&g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#0a0a0a] border-[3px] border-[#67e8f9] shadow-[0_0_15px_#67e8f9,inset_0_0_10px_rgba(103,232,249,0.1)] rounded-none p-1 overflow-hidden h-[200px] relative group block cursor-pointer"
-              >
-                <div className="absolute inset-0 bg-[#67e8f9]/0 group-hover:bg-[#67e8f9]/10 transition-colors z-10 flex items-center justify-center">
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-[#0a0a0a] border border-[#67e8f9] text-[#67e8f9] font-minecraft text-[10px] px-3 py-1 uppercase tracking-widest shadow-[0_0_10px_#67e8f9]">
-                    Open in Maps
-                  </span>
-                </div>
-                <iframe
-                  className="w-full h-full border-0 transition-all duration-500 pointer-events-none"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.387114631383!2d77.53484217625126!3d28.377317675806653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc66264903333%3A0xc3c5d6c8b093f412!2sGalgotias%20University!5e0!3m2!1sen!2sin!4v1714742400000!5m2!1sen!2sin"
-                  loading="lazy"
-                ></iframe>
-              </a>
+              {/* Map Part */}
+              <div>
+                <h3 className="footer-heading flex items-center gap-2">
+                  <span className="text-xl">📍</span> FIND US
+                </h3>
+                <a 
+                  href="http://google.com/maps/place/Galgotias+University/@28.3668904,77.5387649,730m/data=!3m2!1e3!4b1!4m6!3m5!1s0x390cc7365a740e65:0xd0d60a62e55ab171!8m2!3d28.3668904!4d77.5413398!16s%2Fm%2F0gff9fz?entry=ttu&g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#0a0a0a] border-[3px] border-[#67e8f9] shadow-[0_0_15px_#67e8f9,inset_0_0_10px_rgba(103,232,249,0.1)] rounded-none p-1 overflow-hidden h-[180px] relative group block cursor-pointer"
+                >
+                  <div className="absolute inset-0 bg-[#67e8f9]/0 group-hover:bg-[#67e8f9]/10 transition-colors z-10 flex items-center justify-center">
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-[#0a0a0a] border border-[#67e8f9] text-[#67e8f9] font-minecraft text-[10px] px-3 py-1 uppercase tracking-widest shadow-[0_0_10px_#67e8f9]">
+                      Open in Maps
+                    </span>
+                  </div>
+                  <iframe
+                    className="w-full h-full border-0 transition-all duration-500 pointer-events-none"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.387114631383!2d77.53484217625126!3d28.377317675806653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc66264903333%3A0xc3c5d6c8b093f412!2sGalgotias%20University!5e0!3m2!1sen!2sin!4v1714742400000!5m2!1sen!2sin"
+                    loading="lazy"
+                  ></iframe>
+                </a>
+              </div>
             </div>
           </motion.div>
         </div>

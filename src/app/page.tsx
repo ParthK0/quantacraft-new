@@ -13,6 +13,7 @@ import FAQ from "@/components/sections/FAQ";
 import Footer from "@/components/sections/Footer";
 import AvatarAssistant from "@/components/AvatarAssistant";
 import ScrollingMarquee from "@/components/ScrollingMarquee";
+import MobileNav from "@/components/MobileNav";
 import LoadingScreen from "@/components/LoadingScreen";
 import SectionDivider from "@/components/ui/SectionDivider";
 import { motion } from "framer-motion";
@@ -36,12 +37,14 @@ export default function Home() {
     <>
       <LoadingScreen />
 
-      {/* Navigation */}
+      <MobileNav show={showNav} />
+
+      {/* Navigation - Desktop Only */}
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: showNav ? 0 : -100, opacity: showNav ? 1 : 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="fixed top-0 left-0 right-0 z-[9999] flex justify-between items-start px-4 md:px-12 pt-4 pointer-events-none"
+        className="fixed top-0 left-0 right-0 z-[9999] hidden md:flex justify-between items-start px-4 md:px-12 pt-4 pointer-events-none"
       >
         {/* Left Lantern */}
         <div className="lantern-container hidden lg:block -mt-4">
@@ -78,7 +81,9 @@ export default function Home() {
       <main className="relative">
         {/* Sections */}
         <Hero />
-        <ScrollingMarquee />
+        <div className="hidden md:block">
+          <ScrollingMarquee />
+        </div>
         <About />
         <SectionDivider />
         <Tracks />

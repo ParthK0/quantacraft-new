@@ -60,7 +60,7 @@ function SponsorCard({ sponsor, tier, index }: SponsorCardProps) {
           style={{ backgroundColor: colors.glow }}
         />
 
-        <div className="w-64 h-64 relative flex items-center justify-center">
+        <div className="w-40 h-40 md:w-64 md:h-64 relative flex items-center justify-center">
           {/* Pixelated Frame Container */}
           <div className="absolute inset-0 z-20 pointer-events-none">
             {/* Outer Dark Rim (Pixel Effect) */}
@@ -138,14 +138,14 @@ export default function Sponsors() {
       <div className="max-w-7xl mx-auto text-center relative z-10">
         <div className="mt-32 space-y-32">
           {/* Golden Row */}
-          <div className="flex flex-wrap justify-center gap-20">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-20">
             {goldenSponsors.map((sponsor, idx) => (
               <SponsorCard key={idx} sponsor={sponsor} tier="golden" index={idx} />
             ))}
           </div>
 
           {/* Bronze Row */}
-          <div className="flex flex-wrap justify-center gap-20">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-20">
             {bronzeSponsors.map((sponsor, idx) => (
               <SponsorCard key={idx} sponsor={sponsor} tier="bronze" index={idx + 2} />
             ))}

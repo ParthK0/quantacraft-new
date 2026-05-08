@@ -29,7 +29,7 @@ export default function About() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="about-text text-[#e2e8f0] font-minecraft text-[12px] md:text-[14px] leading-[2] uppercase tracking-widest bg-black/40 p-8 rounded-xl backdrop-blur-sm border border-white/5 shadow-2xl"
+          className="about-text text-[#e2e8f0] font-minecraft text-[10px] md:text-[14px] leading-[2] uppercase tracking-widest bg-black/40 p-8 rounded-xl backdrop-blur-sm border border-white/5 shadow-2xl"
         >
           <p className="mb-8">
             QuantCraft 1.0 is the next evolution of Rajasthan's biggest student-run hackathon—a build space where students and innovators from across the country come together to create impactful, real-world tech solutions.

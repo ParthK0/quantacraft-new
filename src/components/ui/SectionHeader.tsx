@@ -54,13 +54,13 @@ export default function SectionHeader({
           <div className="w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[12px] border-l-current" />
         </div>
 
-        {/* Tilted Cursive Subtext */}
-        <div className="absolute -right-8 md:-right-48 bottom-[-20px] md:bottom-[-25px]">
+        {/* Tilted Cursive Subtext - Hidden on Mobile, Shown on Desktop */}
+        <div className="absolute -right-8 md:-right-48 bottom-[-20px] md:bottom-[-25px] hidden md:block">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="font-cursive text-[24px] md:text-[32px] text-white rotate-[-12deg] whitespace-nowrap"
+            className="font-cursive text-[16px] md:text-[32px] text-white rotate-[-12deg] whitespace-nowrap"
             style={{ filter: `drop-shadow(3px 3px 0px ${titleShadow})` }}
           >
             {subtext}
