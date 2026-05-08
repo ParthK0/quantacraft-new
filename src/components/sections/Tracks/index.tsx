@@ -26,6 +26,16 @@ const tracks = [
     battleImg: "/assets/tracks/AIML2-removebg-preview.png",
   },
   {
+    slug: "sponsor",
+    trackName: "SPONSOR TRACKS",
+    accentColor: "#ec4899",
+    glowColor: "#f472b6",
+    platformImg: "/assets/tracks/sposnor platfomr.png",
+    titleImg: "/assets/tracks/sponsor.png",
+    idleImg: "/assets/tracks/sponsor1.png",
+    battleImg: "/assets/tracks/sponsor2.png",
+  },
+  {
     slug: "cyber",
     trackName: "CYBER SECURITY",
     accentColor: "#ef4444",
@@ -70,7 +80,7 @@ export default function Tracks() {
           className="mb-28 md:mb-40"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 md:gap-8 justify-items-center">
           {tracks.map((track, i) => (
             <motion.div
               key={i}
