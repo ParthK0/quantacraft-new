@@ -105,7 +105,7 @@ export default function Prizes() {
         <SectionHeader
           title="PRIZE POOL"
           subtext=""
-          className="pt-16 mb-[-30px]"
+          className="pt-16 mb-12 md:mb-[-30px]"
           titleClassName="[word-spacing:-0.6em]"
         />
 

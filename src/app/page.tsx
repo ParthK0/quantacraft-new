@@ -41,7 +41,7 @@ export default function Home() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: showNav ? 0 : -100, opacity: showNav ? 1 : 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="fixed top-0 left-0 right-0 z-[9999] flex justify-between items-start px-12 pt-4 pointer-events-none"
+        className="fixed top-0 left-0 right-0 z-[9999] flex justify-between items-start px-4 md:px-12 pt-4 pointer-events-none"
       >
         {/* Left Lantern */}
         <div className="lantern-container hidden lg:block -mt-4">
@@ -50,7 +50,7 @@ export default function Home() {
         </div>
 
         {/* Center Signs */}
-        <div className="flex-1 flex justify-evenly items-start pt-0 px-2 pointer-events-auto">
+        <div className="flex-1 flex justify-evenly items-start pt-0 px-1 md:px-2 pointer-events-auto">
           {[
             { label: "Home", href: "#hero" },
             { label: "About", href: "#about" },
@@ -58,7 +58,7 @@ export default function Home() {
             { label: "Timeline", href: "#timeline" },
             { label: "Contact", href: "#footer" }
           ].map((item, i) => (
-            <div key={i} className="nav-sign-container relative" style={{ animationDelay: `${i * -0.8}s` }}>
+            <div key={i} className="nav-sign-container relative scale-[0.65] sm:scale-[0.85] md:scale-100 origin-top" style={{ animationDelay: `${i * -0.8}s` }}>
               <div className="sign-rope left-rope" />
               <div className="sign-rope right-rope" />
               <a href={item.href} className="nav-sign hover:brightness-110 transition-all relative">

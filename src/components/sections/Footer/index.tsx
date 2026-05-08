@@ -101,7 +101,7 @@ export default function Footer() {
             </div>
 
             {/* [Col 2 - Quick Links] */}
-            <div className="lg:border-l lg:border-white/10 pl-12 mb-8 lg:mb-0 bg-black/25 p-4 backdrop-blur-[2px]">
+            <div className="lg:border-l lg:border-white/10 pl-4 lg:pl-12 mb-8 lg:mb-0 bg-black/25 p-4 backdrop-blur-[2px]">
               <h3 className="footer-heading">Quick Links</h3>
               <ul className="space-y-3">
                 {['Home', 'About', 'Tracks', 'Prizes', 'FAQs'].map((link) => (
@@ -115,7 +115,7 @@ export default function Footer() {
             </div>
 
             {/* [Col 3 - Contact Us] */}
-            <div className="lg:border-l lg:border-white/10 pl-12 mb-8 lg:mb-0 bg-black/20 p-4 backdrop-blur-[2px]">
+            <div className="lg:border-l lg:border-white/10 pl-4 lg:pl-12 mb-8 lg:mb-0 bg-black/20 p-4 backdrop-blur-[2px]">
               <h3 className="footer-heading">Contact Us</h3>
               <div className="space-y-6">
                 <div className="flex flex-col">
@@ -138,7 +138,7 @@ export default function Footer() {
             </div>
 
             {/* [Col 4 - Map] */}
-            <div className="lg:border-l lg:border-white/10 pl-12 bg-black/15 p-4 backdrop-blur-[2px]">
+            <div className="lg:border-l lg:border-white/10 pl-4 lg:pl-12 bg-black/15 p-4 backdrop-blur-[2px]">
               <h3 className="footer-heading flex items-center gap-2">
                 <span className="text-xl">📍</span> FIND US
               </h3>
