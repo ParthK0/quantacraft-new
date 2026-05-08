@@ -60,7 +60,7 @@ export default function Timeline() {
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Central Vertical Line (Dark Green Vine/Stem) */}
-        <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-3 bg-[#1b4332] -translate-x-1/2 opacity-80 shadow-[inset_-2px_0_4px_rgba(0,0,0,0.5),2px_0_4px_rgba(0,0,0,0.3)]" />
+        <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-2 bg-[#1b4332] -translate-x-1/2 opacity-70 shadow-[0_0_10px_rgba(27,67,50,0.5)]" />
 
         <div className="space-y-24 md:space-y-0">
           {events.map((event, i) => (
@@ -82,13 +82,18 @@ export default function Timeline() {
                   <img 
                     src={event.imageSrc} 
                     alt={event.alt}
-                    className="w-full h-[100px] md:h-[140px] object-contain"
+                    className="w-full h-[100px] md:h-[120px] object-contain"
                   />
                 </motion.div>
               </div>
 
+              {/* Horizontal Connector (Vine Branch) */}
+              <div className={`absolute top-1/2 -translate-y-1/2 h-[3px] bg-[#1b4332]/60 hidden md:block z-0 ${
+                i % 2 === 0 ? "left-[30%] right-1/2" : "right-[30%] left-1/2"
+              }`} />
+
               {/* Center Connection Point (Dark Green Block) */}
-              <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-5 h-5 bg-[#2d6a4f] border-2 border-[#1b4332] shadow-[2px_2px_0_rgba(0,0,0,0.4)] z-20" />
+              <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-[#2d6a4f] border-2 border-[#1b4332] shadow-[0_0_8px_rgba(45,106,79,0.4)] z-20" />
               
               <div className="flex-1 hidden md:block" />
             </motion.div>
