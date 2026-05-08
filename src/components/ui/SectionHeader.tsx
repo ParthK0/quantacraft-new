@@ -28,7 +28,7 @@ export default function SectionHeader({
       </h2>
 
       {/* Minecraft Style Divider & Subtext Container */}
-      <div className="relative mt-4 flex flex-col items-center">
+      <div className="relative mt-8 flex flex-col items-center">
         {/* White and Purple Shadow Minecraft Divider */}
         <div 
           className="flex items-center text-white relative"

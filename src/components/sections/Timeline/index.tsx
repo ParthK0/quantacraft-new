@@ -74,7 +74,7 @@ export default function Timeline() {
         {/* Central Vertical Line */}
         <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0 border-r-[4px] border-dashed border-[#A000FF] -translate-x-1/2 opacity-50" />
 
-        <div className="space-y-4">
+        <div className="space-y-12">
           {events.map((event, i) => (
             <motion.div
               key={i}

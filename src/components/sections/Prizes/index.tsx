@@ -90,7 +90,7 @@ export default function Prizes() {
   return (
     <section 
       id="prizes" 
-      className="py-4 md:py-8 px-4 relative overflow-hidden flex flex-col items-center justify-center min-h-[400px] md:min-h-[500px]"
+      className="py-12 md:py-20 px-4 relative overflow-hidden flex flex-col items-center justify-center"
       style={{
         backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/prizes/bg1.png")',
         backgroundSize: 'cover',
@@ -105,14 +105,14 @@ export default function Prizes() {
         <SectionHeader
           title="PRIZE POOL"
           subtext=""
-          className="pt-16 mb-[-40px]"
+          className="pt-16 mb-[-30px]"
           titleClassName="[word-spacing:-0.6em]"
         />
 
         {/* Desktop Layout: 3 Top, 2 Bottom */}
-        <div className="hidden md:flex flex-col items-center gap-0 ">
+        <div className="hidden md:flex flex-col items-center gap-0">
           {/* Top Row: Podium Order (2, 1, 3) */}
-          <div className="flex flex-row items-end justify-center w-full gap-45">
+          <div className="flex flex-row items-end justify-center w-full gap-24 lg:gap-40">
             {[prizesData[1], prizesData[0], prizesData[2]].map((prize, index) => (
               <motion.div
                 key={prize.id}
@@ -128,7 +128,7 @@ export default function Prizes() {
           </div>
 
           {/* Bottom Row: Special, Participation */}
-          <div className="flex flex-row items-end justify-center w-full gap-50 mt-[-10px] ">
+          <div className="flex flex-row items-end justify-center w-full gap-25 lg:gap-45 mt-[-80px] lg:mt-[-100px]">
             {prizesData.slice(3, 5).map((prize, index) => (
               <motion.div
                 key={prize.id}
@@ -145,7 +145,7 @@ export default function Prizes() {
         </div>
 
         {/* Mobile Layout: Single column */}
-        <div className="flex flex-col md:hidden items-center gap-[40px]">
+        <div className="flex flex-col md:hidden items-center gap-[60px]">
           {prizesData.map((prize, index) => (
             <motion.div
               key={prize.id}
