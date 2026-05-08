@@ -53,30 +53,51 @@ export default function Footer() {
                 alt="QuantCraft Logo"
                 className="h-16 w-auto mb-6 object-contain self-start filter drop-shadow-[0_0_12px_rgba(0,255,255,0.6)]"
               />
-              <div className="space-y-6">
-                <div>
-                  <h3 className="footer-heading !mb-3">FOLLOW US</h3>
-                  <div className="flex flex-wrap gap-3">
-                    {[
-                      { Icon: SiInstagram, href: "https://www.instagram.com/nexido_official?igsh=MXFsNndtdDZzMTM2dQ==", label: "NEXIDO INSTAGRAM" },
-                      { Icon: SiX, href: "https://x.com/nexido_official", label: "NEXIDO X" },
-                      { Icon: FaLinkedin, href: "https://www.linkedin.com/company/nexido/", label: "NEXIDO LINKEDIN" },
-                      { Icon: SiInstagram, href: "https://www.instagram.com/the.builderbase?igsh=MWljNWU2YnFwdDBoeA==", label: "BUILDER BASE INSTAGRAM" }
-                    ].map(({ Icon, href, label }, idx) => (
-                      <a 
-                        key={idx}
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-[36px] h-[36px] flex items-center justify-center border-2 border-[#67e8f9] rounded-none bg-[rgba(103,232,249,0.1)] text-[#67e8f9] transition-all duration-200 hover:bg-[#67e8f9] hover:text-[#0f1a0f] hover:shadow-[0_0_15px_#67e8f9] hover:-translate-y-[3px]"
-                        title={label}
-                      >
-                        <Icon className="w-4 h-4" />
-                      </a>
-                    ))}
+                  <div className="space-y-6">
+                    {/* Nexido Socials */}
+                    <div>
+                      <h3 className="footer-heading !mb-3">FOLLOW NEXIDO</h3>
+                      <div className="flex flex-wrap gap-3">
+                        {[
+                          { Icon: SiInstagram, href: "https://www.instagram.com/nexido_official?igsh=MXFsNndtdDZzMTM2dQ==", label: "NEXIDO INSTAGRAM" },
+                          { Icon: SiX, href: "https://x.com/nexido_official", label: "NEXIDO X" },
+                          { Icon: FaLinkedin, href: "https://www.linkedin.com/company/nexido/", label: "NEXIDO LINKEDIN" }
+                        ].map(({ Icon, href, label }, idx) => (
+                          <a 
+                            key={idx}
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-[36px] h-[36px] flex items-center justify-center border-2 border-[#67e8f9] rounded-none bg-[rgba(103,232,249,0.1)] text-[#67e8f9] transition-all duration-200 hover:bg-[#67e8f9] hover:text-[#0f1a0f] hover:shadow-[0_0_15px_#67e8f9] hover:-translate-y-[3px]"
+                            title={label}
+                          >
+                            <Icon className="w-4 h-4" />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Builder Base Socials */}
+                    <div>
+                      <h3 className="footer-heading !mb-3">FOLLOW BUILDER BASE</h3>
+                      <div className="flex flex-wrap gap-3">
+                        {[
+                          { Icon: SiInstagram, href: "https://www.instagram.com/the.builderbase?igsh=MWljNWU2YnFwdDBoeA==", label: "BUILDER BASE INSTAGRAM" }
+                        ].map(({ Icon, href, label }, idx) => (
+                          <a 
+                            key={idx}
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-[36px] h-[36px] flex items-center justify-center border-2 border-[#67e8f9] rounded-none bg-[rgba(103,232,249,0.1)] text-[#67e8f9] transition-all duration-200 hover:bg-[#67e8f9] hover:text-[#0f1a0f] hover:shadow-[0_0_15px_#67e8f9] hover:-translate-y-[3px]"
+                            title={label}
+                          >
+                            <Icon className="w-4 h-4" />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
             </div>
 
             {/* [Col 2 - Quick Links] */}
