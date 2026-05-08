@@ -122,7 +122,7 @@ export default function Sponsors() {
       <img
         src="/assets/sponsor/sponsor.jpg"
         alt="Sponsors Backdrop"
-        className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none opacity-60"
+        className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none opacity-80"
       />
 
       {/* Subtle Overlays */}

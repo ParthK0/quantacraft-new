@@ -16,6 +16,7 @@ interface PrizeData {
   amountClass: string;
   idleOpacity: number[];
   glowRadius: string;
+  labelImg?: string;
 }
 
 export default function PrizeChest({ data }: { data: PrizeData }) {
@@ -104,24 +105,20 @@ export default function PrizeChest({ data }: { data: PrizeData }) {
 
       {/* Content */}
       <div className="mt-[12px] flex flex-col items-center drop-shadow-md text-center w-full relative z-[3]">
-        <span 
-          className="font-minecraft text-[11px] md:text-[13px] leading-none mb-1.5 opacity-90"
-          style={{ color: data.glowColor, textShadow: `0 0 8px ${data.glowColor}66` }}
-        >
-          {data.id === 'participants' ? '' : `#${data.id === 'first' ? '1' : data.id === 'second' ? '2' : data.id === 'third' ? '3' : ''}`}
-        </span>
-        <h3 
-          className={`font-minecraft uppercase tracking-wider leading-none mb-1.5 ${data.labelClass}`} 
-          style={{ color: data.glowColor, textShadow: `0 0 12px ${data.glowColor}aa` }}
-        >
-          {data.label}
-        </h3>
-        <p 
-          className={`font-minecraft text-white leading-none ${data.amountClass}`} 
-          style={{ textShadow: `0 0 15px ${data.glowColor}` }}
-        >
-          {data.amount}
-        </p>
+        {data.labelImg ? (
+          <img 
+            src={data.labelImg} 
+            alt={data.label} 
+            className="h-[20px] md:h-[40px] lg:h-[48px] object-contain mb-2" 
+          />
+        ) : (
+          <h3 
+            className={`font-minecraft uppercase tracking-wider leading-none mb-1.5 ${data.labelClass}`} 
+            style={{ color: data.glowColor, textShadow: `0 0 12px ${data.glowColor}aa` }}
+          >
+            {data.label}
+          </h3>
+        )}
       </div>
     </motion.div>
   );
