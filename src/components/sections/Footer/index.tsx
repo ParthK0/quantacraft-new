@@ -22,7 +22,7 @@ export default function Footer() {
               <span className="text-[#88eeff]">~</span>
               <span>MAY 25-26</span>
               <span className="text-[#88eeff]">~</span>
-              <span>48 HOURS OF BUILDING</span>
+              <span>24 HOURS OF BUILDING</span>
               <span className="text-[#88eeff]">~</span>
               <span>JOIN THE ADVENTURE!</span>
               <span className="text-[#88eeff] mx-4">★</span>

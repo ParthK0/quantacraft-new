@@ -8,7 +8,7 @@ export default function ScrollingMarquee() {
       <div className="flex whitespace-nowrap py-2 animate-marquee">
         {[...Array(10)].map((_, i) => (
           <span key={i} className="font-minecraft text-sm mx-12 text-white drop-shadow-[2px_2px_0_#000] uppercase tracking-widest">
-            QUANTCRAFT IS HERE! ~ MAY 25-26 ~ 48 HOURS OF BUILDING ~ JOIN THE ADVENTURE ~ 
+            QUANTCRAFT IS HERE! ~ MAY 25-26 ~ 24 HOURS OF BUILDING ~ JOIN THE ADVENTURE ~ 
           </span>
         ))}
       </div>
