@@ -58,10 +58,10 @@ export default function Footer() {
                   <h3 className="footer-heading !mb-3">FOLLOW US</h3>
                   <div className="flex flex-wrap gap-3">
                     {[
-                      { Icon: SiX, href: "#", label: "NEXIDO" },
-                      { Icon: FaLinkedin, href: "#", label: "NEXIDO" },
-                      { Icon: SiInstagram, href: "#", label: "NEXIDO" },
-                      { Icon: SiInstagram, href: "#", label: "BUILDER BASE" }
+                      { Icon: SiInstagram, href: "https://www.instagram.com/nexido.in?igsh=MXFndXJxdXN0Y3J1aw==", label: "NEXIDO INSTAGRAM" },
+                      { Icon: SiX, href: "https://x.com/Nexido_in?t=U6C7EofL4TfW_mGv-VlZ6w&s=09", label: "NEXIDO X" },
+                      { Icon: FaLinkedin, href: "https://www.linkedin.com/company/nexido-in/", label: "NEXIDO LINKEDIN" },
+                      { Icon: SiInstagram, href: "https://www.instagram.com/builderbase.in?igsh=MWJod2Y0djFrcTNpYQ==", label: "BUILDER BASE INSTAGRAM" }
                     ].map(({ Icon, href, label }, idx) => (
                       <a 
                         key={idx}
