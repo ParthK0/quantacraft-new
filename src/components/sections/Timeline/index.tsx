@@ -14,45 +14,38 @@ import {
 
 const events = [
   { 
-    date: "May 04", 
+    date: "MAY 07", 
     time: "09:00 AM",
     title: "Registration Starts", 
-    desc: "Open to all students across India.",
+    desc: "Begin your journey into QuantCraft. Team registrations officially open for all participants.",
     icon: Rocket,
   },
   { 
-    date: "May 15", 
+    date: "MAY 15", 
     time: "11:30 PM",
     title: "PPT Submission", 
-    desc: "Submit your core idea and approach.",
+    desc: "Submit your project idea presentation before the deadline. Showcase your concept, vision, and innovation.",
     icon: FileText,
   },
   { 
-    date: "May 20", 
-    time: "06:00 PM",
-    title: "Reg End & Final Sub", 
-    desc: "Final deadline for all submissions.",
+    date: "MAY 20", 
+    time: "11:59 PM",
+    title: "Final Deadline", 
+    desc: "Last day for all final submissions and edits. No further changes will be accepted after this point.",
     icon: Timer,
   },
   { 
-    date: "May 22", 
-    time: "02:00 PM",
-    title: "Trade Session", 
-    desc: "Interactive session with mentors.",
-    icon: Users,
-  },
-  { 
-    date: "May 23", 
+    date: "MAY 23", 
     time: "10:00 AM",
     title: "PPT Evaluation", 
-    desc: "Expert review of your presentations.",
+    desc: "Project presentations and idea evaluations begin.",
     icon: Search,
   },
   { 
-    date: "May 25-26", 
-    time: "48H LIVE",
+    date: "MAY 25–26", 
+    time: "24H LIVE",
     title: "The End Fight", 
-    desc: "Final hacking battle at the venue.",
+    desc: "24 Hours of non-stop building, hacking, and innovation. The final offline battle begins at the venue.",
     icon: Trophy,
   },
 ];
@@ -95,10 +88,16 @@ export default function Timeline() {
 
               {/* Event Card (Simple bar like the photo) */}
               <div className="flex-1 w-full pl-12 md:pl-0">
-                <div className="bg-[#1a0c1a] border-y border-[#A000FF] hover:bg-[#2d122d] transition-colors py-3 px-6 relative">
+                <div className="bg-[#1a0c1a] border-y border-[#A000FF] hover:bg-[#2d122d] transition-colors py-4 px-6 relative">
                   <div className={`flex flex-col ${i % 2 === 0 ? "md:items-start" : "md:items-end text-right"}`}>
-                    <span className="text-[#A000FF] text-[10px] mb-1">{event.time}</span>
-                    <h3 className="text-white text-sm uppercase tracking-wider">{event.title}</h3>
+                    <div className="flex items-center gap-3 mb-1">
+                      <span className="text-[#A000FF] text-[12px] font-bold">{event.date}</span>
+                      <span className="text-white/40 text-[10px]">{event.time}</span>
+                    </div>
+                    <h3 className="text-white text-base uppercase tracking-wider mb-2">{event.title}</h3>
+                    <p className={`text-white/60 text-xs leading-relaxed max-w-md ${i % 2 === 0 ? "text-left" : "text-right"}`}>
+                      {event.desc}
+                    </p>
                   </div>
                 </div>
               </div>
