@@ -117,7 +117,7 @@ function SponsorCard({ sponsor, tier, index }: SponsorCardProps) {
 
 export default function Sponsors() {
   return (
-    <section id="sponsors" className="py-40 px-4 relative overflow-hidden bg-[#0a0a0a]">
+    <section id="sponsors" className="py-20 px-4 relative overflow-hidden bg-[#0a0a0a]">
       {/* Background Image - Restored visibility */}
       <img
         src="/assets/sponsor/sponsor.jpg"

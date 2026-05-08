@@ -211,7 +211,7 @@ export default function Team() {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
-        setDim({ cardW: 110, gap: 8, cardH: 200 });
+        setDim({ cardW: 90, gap: 6, cardH: 160 });
       } else {
         setDim({ cardW: 260, gap: 24, cardH: 540 });
       }
@@ -293,7 +293,7 @@ export default function Team() {
   }, [wrapIfNeeded]);
 
   return (
-    <section id="team" className="py-16 bg-zinc-900 overflow-hidden relative">
+    <section id="team" className="py-12 bg-zinc-900 overflow-hidden relative">
       {/* Background Image */}
       <img
         src="/assets/team/minecraft.jpg"
@@ -309,7 +309,7 @@ export default function Team() {
         <SectionHeader 
         title="THE QUANTA CREW" 
         subtext="Meet the Innovators" 
-        className="pt-10"
+        className=""
       />
 
       {/* Carousel wrapper */}

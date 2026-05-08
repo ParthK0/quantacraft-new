@@ -6,21 +6,28 @@ import SectionHeader from "@/components/ui/SectionHeader";
 export default function About() {
   return (
     <section id="about" className="about-section py-0 px-4 relative overflow-hidden">
-      {/* Background Video */}
+      {/* Background Video - Desktop */}
       <video
         autoPlay
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
+        className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none hidden md:block"
       >
         <source src="/assets/about/mp_.mp4" type="video/mp4" />
       </video>
 
+      {/* Background Image - Mobile */}
+      <img
+        src="/assets/about/sky.jpg"
+        alt="Sky Background"
+        className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none block md:hidden"
+      />
+
       <SectionHeader
         title="ABOUT QUANTCRAFT"
         subtext="Build. Solve. Conquer."
-        className="mt-20"
+        className="mt-10"
       />
 
       <div className="about-content relative z-10">

@@ -81,9 +81,7 @@ export default function Home() {
       <main className="relative">
         {/* Sections */}
         <Hero />
-        <div className="hidden md:block">
-          <ScrollingMarquee />
-        </div>
+        <ScrollingMarquee />
         <About />
         <SectionDivider />
         <Tracks />

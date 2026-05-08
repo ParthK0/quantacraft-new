@@ -93,7 +93,7 @@ export default function Prizes() {
   return (
     <section 
       id="prizes" 
-      className="py-12 md:py-20 px-4 relative overflow-hidden flex flex-col items-center justify-center"
+      className="py-8 md:py-12 px-4 relative overflow-hidden flex flex-col items-center justify-center"
       style={{
         backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/prizes/bg1.png")',
         backgroundSize: 'cover',
@@ -109,7 +109,7 @@ export default function Prizes() {
         <SectionHeader
           title="PRIZE POOL"
           subtext=""
-          className="pt-16 mb-12 md:mb-[-30px]"
+          className="pt-8 mb-12 md:mb-[-30px]"
           titleClassName="[word-spacing:-0.6em]"
         />
 

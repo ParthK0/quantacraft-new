@@ -36,16 +36,23 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="relative py-16 overflow-hidden">
-      {/* 📹 Background Video */}
+      {/* 📹 Background Video - Desktop */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover -z-10 brightness-110"
+        className="absolute inset-0 w-full h-full object-cover -z-10 brightness-110 hidden md:block"
       >
         <source src="/assets/FAQs/FAQs.mp4" type="video/mp4" />
       </video>
+
+      {/* 🖼️ Background Image - Mobile */}
+      <img
+        src="/assets/about/sky.jpg"
+        alt="Sky Background"
+        className="absolute inset-0 w-full h-full object-cover -z-10 brightness-110 block md:hidden"
+      />
 
       {/* 🌑 Overlay for readability (Reduced opacity for more brightness) */}
       <div className="absolute inset-0 bg-black/20 -z-10" />

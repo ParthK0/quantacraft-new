@@ -61,7 +61,7 @@ export default function Tracks() {
   return (
     <section
       id="tracks"
-      className="relative py-32 px-4 overflow-hidden bg-zinc-950"
+      className="relative py-16 px-4 overflow-hidden bg-zinc-950"
     >
       {/* Battle Arena Background */}
       <div className="absolute inset-0 z-0">

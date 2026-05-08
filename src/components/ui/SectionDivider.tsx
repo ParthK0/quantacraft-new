@@ -6,14 +6,14 @@ export default function SectionDivider() {
   return (
     <div className="relative w-full flex items-center justify-center h-0 z-30">
       {/* Bolder White Line */}
-      <div className="absolute left-0 right-0 h-[4px] bg-white opacity-90 shadow-[0_0_10px_rgba(255,255,255,0.3)]" />
+      <div className="absolute left-0 right-0 h-[2px] md:h-[4px] bg-white opacity-90 shadow-[0_0_10px_rgba(255,255,255,0.3)]" />
       
       {/* The Central Star (Hexagon) - 1/5th BIGGER with Shading */}
       <motion.div 
         initial={{ rotate: 0, scale: 0.9 }}
         whileInView={{ rotate: 360, scale: 1 }}
         transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-        className="relative z-10 w-14 h-16 flex items-center justify-center"
+        className="relative z-10 w-10 h-12 md:w-14 md:h-16 flex items-center justify-center"
       >
         {/* Outer Hexagon (Highlight) */}
         <div 

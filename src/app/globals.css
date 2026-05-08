@@ -100,6 +100,7 @@ h2::after {
   h2 {
     font-size: 22px;
     margin-bottom: 40px;
+    text-shadow: 3px 3px var(--title-shadow, #A000FF);
   }
 
   h2::before {
@@ -375,14 +376,12 @@ h2::after {
     border-width: 1px !important;
   }
   .profile-desc {
-    font-size: 4px !important;
-    margin-bottom: 4px !important;
-    line-height: 1.2 !important;
-    -webkit-line-clamp: 2 !important;
+    display: none !important;
   }
   .profile-social-container {
     gap: 4px !important;
     padding-bottom: 0 !important;
+    margin-top: 4px !important;
   }
   .profile-social {
     width: 14px !important;
