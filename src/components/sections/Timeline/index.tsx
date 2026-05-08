@@ -82,7 +82,7 @@ export default function Timeline() {
                   <img 
                     src={event.imageSrc} 
                     alt={event.alt}
-                    className="w-full h-auto object-contain"
+                    className="w-full h-[100px] md:h-[140px] object-contain"
                   />
                 </motion.div>
               </div>
