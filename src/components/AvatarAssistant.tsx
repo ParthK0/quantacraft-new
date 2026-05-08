@@ -27,7 +27,7 @@ export default function AvatarAssistant() {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: [0.1, 0.5, 0.8] }
     );
 
     const sections = document.querySelectorAll("section[id]");
@@ -63,7 +63,7 @@ export default function AvatarAssistant() {
               initial={{ opacity: 0, scale: 0.8, x: -10 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
               exit={{ opacity: 0, scale: 0.8, x: -10 }}
-              className="relative flex items-center pointer-events-auto"
+              className="relative flex items-center pointer-events-none"
             >
               {/* Bubble Tail */}
               <div className="w-0 h-0 border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent border-r-[12px] border-r-white z-10" />
