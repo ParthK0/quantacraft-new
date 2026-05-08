@@ -59,17 +59,17 @@ export default function Timeline() {
       />
 
       <div className="max-w-6xl mx-auto relative z-10">
-        {/* Central Vertical Line (Minecraft Tree Trunk) */}
-        <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-3 bg-[#4b3621] -translate-x-1/2 opacity-80 shadow-[inset_-2px_0_4px_rgba(0,0,0,0.5),2px_0_4px_rgba(0,0,0,0.3)]" />
+        {/* Central Vertical Line (Dark Green Vine/Stem) */}
+        <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-3 bg-[#1b4332] -translate-x-1/2 opacity-80 shadow-[inset_-2px_0_4px_rgba(0,0,0,0.5),2px_0_4px_rgba(0,0,0,0.3)]" />
 
-        <div className="space-y-16 md:space-y-0">
+        <div className="space-y-24 md:space-y-0">
           {events.map((event, i) => (
             <motion.div
               key={event.id}
               initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className={`flex flex-col md:flex-row items-center relative group mb-8 md:mb-[-20px] ${
+              className={`flex flex-col md:flex-row items-center relative group mb-12 md:mb-16 ${
                 i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
               }`}
             >
@@ -87,8 +87,8 @@ export default function Timeline() {
                 </motion.div>
               </div>
 
-              {/* Center Connection Point (Minecraft Block) */}
-              <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-5 h-5 bg-[#5d4037] border-2 border-[#3e2723] shadow-[2px_2px_0_rgba(0,0,0,0.4)] z-20" />
+              {/* Center Connection Point (Dark Green Block) */}
+              <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-5 h-5 bg-[#2d6a4f] border-2 border-[#1b4332] shadow-[2px_2px_0_rgba(0,0,0,0.4)] z-20" />
               
               <div className="flex-1 hidden md:block" />
             </motion.div>
