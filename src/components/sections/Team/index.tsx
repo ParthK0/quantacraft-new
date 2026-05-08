@@ -383,8 +383,9 @@ export default function Team() {
           ))}
         </div>
       </div>
+    </div>
 
-      {/* Rail track decoration */}
+    {/* Rail track decoration */}
       <div className="absolute bottom-20 left-0 right-0 h-px opacity-30 pointer-events-none"
         style={{ background: "repeating-linear-gradient(to right,#3f3f46 0,#3f3f46 24px,transparent 24px,transparent 40px)" }} />
     </section>
